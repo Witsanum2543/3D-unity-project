@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameInput gameInput;
 
     [Header ("Movement parameter")]
-    [SerializeField] private float moveSpeed = 6f;
+    [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float rotationSpeed = 10f;
 
     private void Update() {
