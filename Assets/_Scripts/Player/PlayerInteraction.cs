@@ -35,6 +35,11 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         // Unselect the soil if the player is not standing on any soil at the moment
+        if (selectedSoil != null)
+        {
+            selectedSoil.Select(false);
+            selectedSoil = null;
+        }
     }
 
     // Handle selection process
@@ -44,7 +49,6 @@ public class PlayerInteraction : MonoBehaviour
         if (selectedSoil != null) 
         {  
             selectedSoil.Select(false);
-            
         }
 
         // Set new selected soil to be activev
