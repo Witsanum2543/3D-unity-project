@@ -22,6 +22,9 @@ public class Soil : MonoBehaviour
     {
         currentMesh = transform.GetComponentInChildren<MeshFilter>();
         SwitchSoilState(soilState);
+
+        // Deactivate the soil by default
+        Select(false);
     }
 
     public void SwitchSoilState(SoilState state) {
@@ -40,5 +43,11 @@ public class Soil : MonoBehaviour
 
     public void Select(bool toggle) {
         select.SetActive(toggle);
+    }
+
+    // When the player presses the interact button while selecting this soil
+    public void Interact() {
+        // Interaction
+        Debug.Log("interact");
     }
 }
