@@ -7,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
     PlayerController playerController;
 
     Soil selectedSoil;
+    PickUpObject selectedObject;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,14 @@ public class PlayerInteraction : MonoBehaviour
             return;
         }
 
+        // Check if the player is going to interact with pickupObject
+        if (other.tag == "pickupObject")
+        {
+            if (!playerController.pickupController.isHolding) {
+                selectedObject = other.GetComponent<PickUpObject>();
+            }
+        }
+
         // Unselect the soil if the player is not standing on any soil at the moment
         if (selectedSoil != null)
         {
@@ -51,8 +60,23 @@ public class PlayerInteraction : MonoBehaviour
             selectedSoil.Select(false);
         }
 
-        // Set new selected soil to be activev
+        // Set new selected soil to be active
         selectedSoil = soil;
         soil.Select(true);
+    }
+
+    public void Interact()
+    {
+        if (selectedObject != null) {
+            selectedObject.Interact(playerController.pickupPivot);
+            // After pickup item, deselect that item
+            selectedObject = null;
+            return;
+        }
+
+        if (selectedSoil != null) {
+            selectedSoil.Interact();
+            return;
+        }
     }
 }

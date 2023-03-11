@@ -5,31 +5,41 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+      // Receive game input to handle it
+    [SerializeField] private GameInput gameInput;
+
     [Header ("Movement parameter")]
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float rotationSpeed = 10f;
 
-    // Receive game input to handle it
-    [SerializeField] private GameInput gameInput;
     // controller that move our player's character
     private CharacterController characterController;
+    // Interaction components
+    PlayerInteraction playerInteraction;
+
+    [Header ("Pickup component")]
+    [SerializeField] public GameObject pickupPivot;
+    [SerializeField] public PickupController pickupController;
+
 
     // Animation state
     private bool isRunning = false;
 
     private void Start() {
         characterController = GetComponent<CharacterController>();
+        playerInteraction = GetComponentInChildren<PlayerInteraction>();
     }
 
     private void Update() {
         Move();
+        Interact();
     }
 
     public void Move() {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
-        handleGravity(moveDirection); 
+        // handleGravity(moveDirection); 
 
         Vector3 velocity = moveSpeed * moveDirection * Time.deltaTime ;
 
@@ -54,9 +64,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Interact() {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            // If player holding something, player cant interact with other thing
+            if (pickupController.isHolding) {
+                pickupController.dropItem();
+            } else {
+                playerInteraction.Interact();
+            }
+        }
+    }
+
     // ************************** ANIMATION SECTION ***********************************************
 
     public bool IsRunning() {
         return isRunning;
     }
+
 }
