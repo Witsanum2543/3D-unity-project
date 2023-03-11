@@ -9,13 +9,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float rotationSpeed = 10f;
 
+    // Receive game input to handle it
     [SerializeField] private GameInput gameInput;
+    // controller that move our player's character
+    private CharacterController controller;
 
     // Animation state
     private bool isRunning;
 
     private void Start() {
-
+        controller = GetComponent<CharacterController>();
     }
 
     private void Update() {
@@ -26,9 +29,13 @@ public class PlayerController : MonoBehaviour
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
-        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        Vector3 velocity = moveSpeed * moveDirection * Time.deltaTime ;
 
-        transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotationSpeed);
+        if (moveDirection.magnitude >= 0.1f) {
+            transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotationSpeed);
+
+            controller.Move(velocity);
+        }
 
         isRunning = moveDirection != Vector3.zero;
     }
