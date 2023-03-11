@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GameInput : MonoBehaviour
 {
-    private InputManager inputManager;
+    private PlayerInputActions playerInputActions;
 
     private void Awake() {
-        inputManager = new InputManager();
-        inputManager.Player.Enable();
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
     }
 
     public Vector2 GetMovementVectorNormalized() {
-        Vector2 inputVector = inputManager.Player.Move.ReadValue<Vector2>();
+        Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
 
         inputVector = inputVector.normalized;
 

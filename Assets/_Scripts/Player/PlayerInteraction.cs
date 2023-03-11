@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    PlayerMovement playerMovement;
+    PlayerController playerController;
 
     Soil selectedSoil;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerMovement = transform.GetComponentInParent<PlayerMovement>();
+        playerController = transform.GetComponentInParent<PlayerController>();
     }
 
     // Update is called once per frame
