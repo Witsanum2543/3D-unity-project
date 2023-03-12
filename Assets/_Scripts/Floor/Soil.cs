@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SoilState
+{
+    SoilDry, SoilWatered
+}
+
 public class Soil : MonoBehaviour
 {
-    public enum SoilState
-    {
-        Soil, SoilWatered
-    }
-
-    [SerializeField] public Mesh soil;
+    [Header ("Soil state")]
+    [SerializeField] public Mesh SoilDry;
     [SerializeField] public Mesh soilWatered;
-
     public SoilState soilState;
     private MeshFilter currentMesh;
 
+    [Header ("Soil Seed")]
+    [SerializeField] public Crop crop;
+
+    [Header ("Selection UI")]
     // The selection gameobject to enable when the player is selecting the soil
     public GameObject select;
 
@@ -23,7 +27,7 @@ public class Soil : MonoBehaviour
         currentMesh = transform.GetComponentInChildren<MeshFilter>();
         SwitchSoilState(soilState);
 
-        // Deactivate the soil by default
+        // Deactivate the soil selection by default
         Select(false);
     }
 
@@ -32,8 +36,8 @@ public class Soil : MonoBehaviour
 
         switch(soilState)
         {
-            case SoilState.Soil:
-                currentMesh.mesh = soil;
+            case SoilState.SoilDry:
+                currentMesh.mesh = SoilDry;
                 break;
             case SoilState.SoilWatered:
                 currentMesh.mesh = soilWatered;
@@ -45,9 +49,15 @@ public class Soil : MonoBehaviour
         select.SetActive(toggle);
     }
 
-    // When the player presses the interact button while selecting this soil
-    public void Interact() {
-        // Interaction
-        Debug.Log("interact");
+    public void Watering() {
+        SwitchSoilState(SoilState.SoilWatered);
+    }
+
+    public void Drying() {
+        SwitchSoilState(SoilState.SoilDry);
+    }
+
+    public void Seeding(GameObject seedPrefab) {
+        crop.initializeSeed(seedPrefab);
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2404350635459739423}
   - component: {fileID: 5675535727548167982}
   - component: {fileID: 620481055812354730}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: soil
   m_TagString: soil
   m_Icon: {fileID: 0}
@@ -32,6 +32,7 @@ Transform:
   m_Children:
   - {fileID: 2967252135919668807}
   - {fileID: 3699594056745249077}
+  - {fileID: 6337691113501730784}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -60,10 +61,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb70f98a5ec1074dababa8d28d27144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soil: {fileID: -2432090755550338912, guid: abb00c2bef1c382439aab5e0b9916041, type: 3}
+  SoilDry: {fileID: -2432090755550338912, guid: abb00c2bef1c382439aab5e0b9916041,
+    type: 3}
   soilWatered: {fileID: -2432090755550338912, guid: 493ce4250077d0c4e8d79209261957e2,
     type: 3}
   soilState: 0
+  crop: {fileID: 3947739351305036019}
   select: {fileID: 3109568102346180292}
 --- !u!1 &3109568102346180292
 GameObject:
@@ -76,7 +79,7 @@ GameObject:
   - component: {fileID: 3699594056745249077}
   - component: {fileID: 7924272638797765735}
   - component: {fileID: 8499079865740769361}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +162,7 @@ GameObject:
   - component: {fileID: 2967252135919668807}
   - component: {fileID: 142676223366067981}
   - component: {fileID: 3521631728198472601}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,3 +234,48 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6700684740704334589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6337691113501730784}
+  - component: {fileID: 3947739351305036019}
+  m_Layer: 0
+  m_Name: Crop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6337691113501730784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700684740704334589}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2404350635459739423}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3947739351305036019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700684740704334589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5313fa4066f5c1840b0adb3aa23009d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextState: {fileID: 0}

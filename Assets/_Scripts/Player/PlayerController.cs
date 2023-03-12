@@ -54,11 +54,9 @@ public class PlayerController : MonoBehaviour
 
     void handleGravity(Vector3 moveDirection) {
         if (characterController.isGrounded) {
-            Debug.Log("GDS");
             float groundedGravity = -.05f;
             moveDirection.y = groundedGravity;
         } else {
-            // Debug.Log("123");
             float gravity = -9.8f;
             moveDirection.y = gravity;
         }
@@ -71,8 +69,11 @@ public class PlayerController : MonoBehaviour
             if (pickupController.isHolding) {
                 pickupController.dropItem();
             } else {
-                playerInteraction.Interact();
+                playerInteraction.InteractMouse();
             }
+        }
+        if (Input.GetKeyDown(KeyCode.E)) {
+            playerInteraction.InteractEKey();
         }
     }
 

@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    [Header ("Raycast Parameter")]
+    [SerializeField] Vector3 boxSize = new Vector3(0.5f, 1f, 0.5f);
+    [SerializeField] float maxDistance = 1f;
+    [SerializeField] String layerMaskToInteractName = "Interact Raycast";
+
     PlayerController playerController;
 
     Soil selectedSoil;
@@ -15,18 +21,52 @@ public class PlayerInteraction : MonoBehaviour
         playerController = transform.GetComponentInParent<PlayerController>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit,  1)) {
-            OnInteractableHit(hit);
-        }
+        processingRaycast();
+    }
+
+    /* 
+        This function will Raycast "Interact Raycast" layer to let player interact with it
+        It sorting distance also the tag to give specific behaviour that we want. 
+    */
+    void processingRaycast() {
+        // ignore everything else except "Interact Raycast"
+        int layerMaskToInteract = LayerMask.GetMask(layerMaskToInteractName);
+
+        RaycastHit[] hits = Physics.BoxCastAll(transform.position, boxSize, transform.forward, transform.rotation, maxDistance, layerMaskToInteract);
+
+        Array.Sort(hits, (x, y) => {
+            // Compare the tags first.
+            int tagCompare = x.collider.tag.CompareTo(y.collider.tag);
+            if (tagCompare != 0) {
+                // If the tags are different, prioritize the "pickupObject" tag.
+                if (x.collider.tag == "pickupObject") {
+                    return -1; // x should come before y
+                } else {
+                    return 1; // y should come before x
+                }
+            } else {
+                // If the tags are the same, sort by distance.
+                return x.distance.CompareTo(y.distance);
+            }
+        });
+       
+       if (hits.Length != 0) {
+         OnInteractableHit(hits[0]);
+       }
+    }
+
+    private void OnDrawGizmos() {
+    // Draw the wireframe cube for the raycast.
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(transform.position + transform.forward * maxDistance, boxSize);
     }
 
     void OnInteractableHit(RaycastHit hit) {
         Collider other = hit.collider;
-        Debug.Log(other.tag);
+
         // Check if the player is going to interact with soil
         if (other.tag == "soil")
         {
@@ -65,7 +105,7 @@ public class PlayerInteraction : MonoBehaviour
         soil.Select(true);
     }
 
-    public void Interact()
+    public void InteractMouse()
     {
         if (selectedObject != null) {
             selectedObject.Interact(playerController.pickupPivot);
@@ -73,10 +113,24 @@ public class PlayerInteraction : MonoBehaviour
             selectedObject = null;
             return;
         }
+    }
 
+    public void InteractEKey()
+    {
         if (selectedSoil != null) {
-            selectedSoil.Interact();
-            return;
+            PickupController playerPickupController = playerController.pickupPivot.GetComponent<PickupController>();
+            
+            if (playerPickupController.isHolding) {
+                // Check if player holding watercan while press E ?
+                if (playerPickupController.getPickUpObject().objectType == EObjectType.Bucket) {
+                    selectedSoil.Watering();
+                }
+                // Check if player holding seed while press E ?
+                if (playerPickupController.getPickUpObject().objectType == EObjectType.Seed) {
+                    selectedSoil.Seeding(playerPickupController.getPickUpObject().seedPrefab);
+                    playerPickupController.destroyHoldingObject();
+                }
+            }
         }
     }
 }
