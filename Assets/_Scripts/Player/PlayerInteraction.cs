@@ -26,7 +26,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void OnInteractableHit(RaycastHit hit) {
         Collider other = hit.collider;
-
+        Debug.Log(other.tag);
         // Check if the player is going to interact with soil
         if (other.tag == "soil")
         {

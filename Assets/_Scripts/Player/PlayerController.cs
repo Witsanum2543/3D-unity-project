@@ -82,4 +82,8 @@ public class PlayerController : MonoBehaviour
         return isRunning;
     }
 
+    public bool IsHolding() {
+        return GetComponentInChildren<PickupController>().isHolding;
+    }
+
 }
