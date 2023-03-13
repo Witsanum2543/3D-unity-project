@@ -54,8 +54,19 @@ public class PlayerInteraction : MonoBehaviour
         });
        
        if (hits.Length != 0) {
-         OnInteractableHit(hits[0]);
-       }
+            OnInteractableHit(hits[0]);
+       } else {
+            // If Raycast didn't hit anything interactable, it mean that we must reset selectedSoil and selectedObject
+            if (selectedSoil != null)
+            {
+                selectedSoil.Select(false);
+                selectedSoil = null;
+            }
+             selectedObject = null;
+            
+        }
+
+       
     }
 
     private void OnDrawGizmos() {
@@ -81,14 +92,15 @@ public class PlayerInteraction : MonoBehaviour
             if (!playerController.pickupController.isHolding) {
                 selectedObject = other.GetComponent<PickUpObject>();
             }
-        }
+        } 
+    }
 
-        // Unselect the soil if the player is not standing on any soil at the moment
-        if (selectedSoil != null)
-        {
-            selectedSoil.Select(false);
-            selectedSoil = null;
-        }
+    IEnumerator HandleDeselection() {
+        yield return new WaitForSeconds(2f);
+
+        selectedSoil.Select(false);
+        selectedSoil = null;
+        selectedObject = null;
     }
 
     // Handle selection process
@@ -127,8 +139,9 @@ public class PlayerInteraction : MonoBehaviour
                 }
                 // Check if player holding seed while press E ?
                 if (playerPickupController.getPickUpObject().objectType == EObjectType.Seed) {
-                    selectedSoil.Seeding(playerPickupController.getPickUpObject().seedPrefab);
-                    playerPickupController.destroyHoldingObject();
+                    if (selectedSoil.Seeding(playerPickupController.getPickUpObject().seedPrefab) == true) {
+                        playerPickupController.destroyHoldingObject();
+                    }
                 }
             }
         }
