@@ -11,6 +11,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] String layerMaskToInteractName = "Interact Raycast";
 
     PlayerController playerController;
+    PickupController playerPickupController;
 
     Soil selectedSoil;
     PickUpObject selectedObject;
@@ -19,6 +20,7 @@ public class PlayerInteraction : MonoBehaviour
     void Start()
     {
         playerController = transform.GetComponentInParent<PlayerController>();
+        playerPickupController = playerController.pickupPivot.GetComponent<PickupController>();
     }
 
 
@@ -120,18 +122,26 @@ public class PlayerInteraction : MonoBehaviour
     public void InteractMouse()
     {
         if (selectedObject != null) {
-            selectedObject.Interact(playerController.pickupPivot);
+            selectedObject.PickUp(playerController.pickupPivot);
             // After pickup item, deselect that item
             selectedObject = null;
             return;
+        }
+
+        if (selectedSoil != null) {
+            if (playerPickupController.getPickUpObject() == null) {
+                GameObject product = selectedSoil.TryHarvesting();
+                if (product != null) {
+                    playerPickupController.setPickupObject(product.GetComponent<PickUpObject>());
+                    product.GetComponent<PickUpObject>().PickUp(playerPickupController.gameObject);
+                }
+            }
         }
     }
 
     public void InteractEKey()
     {
-        if (selectedSoil != null) {
-            PickupController playerPickupController = playerController.pickupPivot.GetComponent<PickupController>();
-            
+        if (selectedSoil != null) {      
             if (playerPickupController.isHolding) {
                 // Check if player holding watercan while press E ?
                 if (playerPickupController.getPickUpObject().objectType == EObjectType.Bucket) {
@@ -139,7 +149,10 @@ public class PlayerInteraction : MonoBehaviour
                 }
                 // Check if player holding seed while press E ?
                 if (playerPickupController.getPickUpObject().objectType == EObjectType.Seed) {
-                    if (selectedSoil.Seeding(playerPickupController.getPickUpObject().seedPrefab) == true) {
+
+                    SeedData seedData = playerPickupController.getPickUpObject().GetComponent<SeedData>();
+
+                    if (selectedSoil.Seeding(seedData) == true) {
                         playerPickupController.destroyHoldingObject();
                     }
                 }

@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public PickupController pickupController;
 
 
+
     // Animation state
     private bool isRunning = false;
 
@@ -36,7 +37,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Move() {
-        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+        Vector2 inputVector = gameInput.GetMovementVector();
+        inputVector = inputVector.normalized;
 
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
         // handleGravity(moveDirection); 
