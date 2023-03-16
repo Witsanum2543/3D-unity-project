@@ -7,10 +7,10 @@ public class AnimalProduct : MonoBehaviour, ITimeTracker
     [SerializeField] private GameObject productObject;
     [SerializeField] private StorageSystem storageArea;
 
-    // The points of animal before producing product
-    int producePoint;
+
     // When producePoints reach maximum product point it will produce product.
     [SerializeField] public int maxProducePoint = 10;
+    int producePoint;
 
     // If food point reach 0 mean that animal are starving.
     [SerializeField] public float maximumFoodPoint = 60;
@@ -18,8 +18,11 @@ public class AnimalProduct : MonoBehaviour, ITimeTracker
 
     [SerializeField] public AnimalFoodArea animalFoodArea;
 
+    private FoodBar foodBar;
+
     void Start()
     {
+        foodBar = GetComponentInChildren<FoodBar>();
         foodPoint = maximumFoodPoint;
         TimeSystem.Instance.RegisterTracker(this);
     }
@@ -52,8 +55,10 @@ public class AnimalProduct : MonoBehaviour, ITimeTracker
                 foodPoint += animalFoodArea.animalEatFood(2);
             }
         }
-    
-        
+
+        if (foodBar != null) {
+            foodBar.UpdateFoodBar(calculateFoodPercentage());
+        }
         
     }
 

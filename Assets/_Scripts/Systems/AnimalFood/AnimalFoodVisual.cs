@@ -50,7 +50,6 @@ public class AnimalFoodVisual : MonoBehaviour, ITimeTracker
 
     public void ClockUpdate(GameTimeStamp timeStamp) 
     {
-        Debug.Log(animalFoodArea.calculateFoodPercentage());
         changeVisualDependOnFoodValue(animalFoodArea.calculateFoodPercentage());
     }
 }

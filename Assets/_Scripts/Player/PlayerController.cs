@@ -37,10 +37,12 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
         
-        isRunning = moveDirection != Vector3.zero;
+        
 
         transform.position += moveDirection * moveSpeed * Time.deltaTime;
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotationSpeed);
+
+        isRunning = moveDirection != Vector3.zero;
     }
 
 
