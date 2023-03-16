@@ -147,3 +147,6 @@ MonoBehaviour:
     type: 3}
   storageArea: {fileID: 0}
   maxProducePoint: 10
+  maximumFoodPoint: 60
+  foodPoint: 0
+  animalFoodArea: {fileID: 0}

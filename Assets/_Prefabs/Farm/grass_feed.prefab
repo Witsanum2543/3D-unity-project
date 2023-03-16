@@ -160,5 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8654be6233f67574083769cbbbb1152e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectType: 0
-  seedPrefab: {fileID: 0}
+  objectType: 2
+  productName: 
+  storageBlock: {fileID: 0}

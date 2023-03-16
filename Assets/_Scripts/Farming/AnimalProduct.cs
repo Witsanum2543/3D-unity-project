@@ -12,15 +12,16 @@ public class AnimalProduct : MonoBehaviour, ITimeTracker
     // When producePoints reach maximum product point it will produce product.
     [SerializeField] public int maxProducePoint = 10;
 
+    // If food point reach 0 mean that animal are starving.
+    [SerializeField] public float maximumFoodPoint = 60;
+    public float foodPoint;
+
+    [SerializeField] public AnimalFoodArea animalFoodArea;
+
     void Start()
     {
+        foodPoint = maximumFoodPoint;
         TimeSystem.Instance.RegisterTracker(this);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Producing()
@@ -39,8 +40,40 @@ public class AnimalProduct : MonoBehaviour, ITimeTracker
 
     public void ClockUpdate(GameTimeStamp timeStamp)
     {
-        Producing();
+        if (calculateFoodPercentage() >= 80) {
+            Producing();
+        }
+
+        foodPoint--;
+        // Hungry then Eat
+        if (isHungry())
+        {
+            if (!animalFoodArea.isEmpty()) {
+                foodPoint += animalFoodArea.animalEatFood(2);
+            }
+        }
+    
+        
+        
     }
 
+    public float calculateFoodPercentage()
+    {
+        return (foodPoint/maximumFoodPoint) * 100;
+    }
+
+    public void Died()
+    {
+        Destroy(this);
+    }
+
+    private bool isHungry()
+    {
+        if (foodPoint < maximumFoodPoint)
+        {
+            return true;
+        }
+        return false;
+    }
 
 }
