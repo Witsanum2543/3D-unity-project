@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 5755751210479800263}
   - component: {fileID: 5755751210479800264}
   - component: {fileID: 5755751210479800276}
-  - component: {fileID: 5755751210479800275}
+  - component: {fileID: 5755751210479800277}
   m_Layer: 0
   m_Name: john
   m_TagString: Untagged
@@ -340,16 +340,16 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899595384836159540}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &5755751210479800275
-BoxCollider:
+--- !u!136 &5755751210479800277
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -358,9 +358,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 3.023115, z: 0.71713126}
-  m_Center: {x: -0, y: 1.0115577, z: -0.14143437}
+  m_Radius: 0.45
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.49, z: 0}
 --- !u!1 &2328558902275870766
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4238946341157044948}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -769,7 +770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4eafed12ccd124e813fec051e633fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxSize: {x: 0.5, y: 1, z: 0.5}
+  boxSize: {x: 0.5, y: 3, z: 0.5}
   maxDistance: 1
   layerMaskToInteractName: Interact Raycast
 --- !u!1 &4377594604386830181

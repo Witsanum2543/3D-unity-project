@@ -9,6 +9,7 @@ public class SeedData : MonoBehaviour
     [SerializeField] public GameObject seedling; 
     [SerializeField] public GameObject harvestable;
     [SerializeField] public GameObject product;
+    [SerializeField] public float maxGrowthPoint;
 
     // Start is called before the first frame update
     void Start()

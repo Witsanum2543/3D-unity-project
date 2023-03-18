@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 1
+  productName: 
+  storageBlock: {fileID: 0}
 --- !u!54 &919132148749771145
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -97,6 +99,7 @@ MonoBehaviour:
   harvestable: {fileID: 6401662300211796536, guid: 5ee1f2f83e9c7eb48b1239a15ec7b1d7,
     type: 3}
   product: {fileID: 5217686187941575090, guid: dca9f761f89b6a74393acb4cedf92b82, type: 3}
+  maxGrowthPoint: 60
 --- !u!1 &6443614080466515274
 GameObject:
   m_ObjectHideFlags: 0

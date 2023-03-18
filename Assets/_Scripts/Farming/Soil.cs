@@ -27,19 +27,12 @@ public class Soil : MonoBehaviour, ITimeTracker
 
     void Start()
     {
+        TimeSystem.Instance.RegisterTracker(this);
         currentMesh = transform.GetComponentInChildren<MeshFilter>();
         SwitchSoilState(soilState);
 
         // Deactivate the soil selection by default
         Select(false);
-    }
-
-    private void Update() {
-        if (soilState == SoilState.SoilWatered) {
-            if (crop.GrowUp() == true) {
-                Drying();
-            }
-        }
     }
 
     public void SwitchSoilState(SoilState state) {
@@ -61,11 +54,11 @@ public class Soil : MonoBehaviour, ITimeTracker
     }
 
     public void Watering() {
+        
         SwitchSoilState(SoilState.SoilWatered);
-        // Subscribe TimeSystem tracker
-        TimeSystem.Instance.RegisterTracker(this);
         // Cache time it got watered
         timeWatered = TimeSystem.Instance.GetGameTimeStamp();
+        
     }
 
     public void Drying() {
@@ -87,7 +80,17 @@ public class Soil : MonoBehaviour, ITimeTracker
         // Check if ... second passes since last watered
         if (soilState == SoilState.SoilWatered) {
             int secondElapsed = GameTimeStamp.CompareTimeStamps(timeWatered, timeStamp);
-            Debug.Log(secondElapsed);
+            
+            if (secondElapsed >= 30)
+            {
+                // Dry the soil
+                SwitchSoilState(SoilState.SoilDry);
+            }
+
+            if (crop.currentCropState != Crop.CropState.None)
+            {
+                crop.Growing();
+            }
         }
     }
 }

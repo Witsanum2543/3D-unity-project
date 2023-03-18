@@ -11,7 +11,7 @@ public class Crop : MonoBehaviour
         Harvestable
     }
 
-    private CropState currentCropState = CropState.None;
+    public CropState currentCropState = CropState.None;
 
     // SeedData
     private GameObject seedObject;
@@ -22,6 +22,9 @@ public class Crop : MonoBehaviour
     // Crop Mesh Filter and Mesh Renderer
     private MeshFilter meshFilter;
     private MeshRenderer meshRenderer;
+
+    float growthPoint = 0;
+    float maxGrowthPoint;
 
     private void Start() {
         meshFilter = gameObject.GetComponent<MeshFilter>();
@@ -37,6 +40,7 @@ public class Crop : MonoBehaviour
             seedlingObject = seedData.seedling;
             harvestableObject = seedData.harvestable;
             productObject = seedData.product;
+            maxGrowthPoint = seedData.maxGrowthPoint;
 
             // Renderer Mesh
             meshFilter.sharedMesh = seedObject.GetComponentInChildren<MeshFilter>().sharedMesh;
@@ -50,22 +54,33 @@ public class Crop : MonoBehaviour
         
     }
 
-    public bool GrowUp() {
+    public void Growing()
+    {
+        growthPoint++;
+        if (calculateGrowPercentage() >= 50 && currentCropState == CropState.Seed)
+        {
+            GrowUp();
+        }
+        if (calculateGrowPercentage() >= 100 && currentCropState == CropState.Seedling)
+        {
+            GrowUp();
+        }
+    }
+
+    public void GrowUp() {
         // Seed --> Seedling
         if (currentCropState == CropState.Seed) {
             currentCropState = CropState.Seedling;
             meshFilter.sharedMesh = seedlingObject.GetComponentInChildren<MeshFilter>().sharedMesh;
             meshRenderer.sharedMaterial = seedlingObject.GetComponentInChildren<MeshRenderer>().sharedMaterial;
-            return true;
+            
         }
         // Seedling --> Harvestable
-        if (currentCropState == CropState.Seedling) {
+        else if (currentCropState == CropState.Seedling) {
             currentCropState = CropState.Harvestable;
             meshFilter.sharedMesh = harvestableObject.GetComponentInChildren<MeshFilter>().sharedMesh;
             meshRenderer.sharedMaterial = harvestableObject.GetComponentInChildren<MeshRenderer>().sharedMaterial;
-            return true;
         }
-        return false;
     }
 
     public GameObject Harvesting() {
@@ -86,5 +101,10 @@ public class Crop : MonoBehaviour
 
         meshFilter.mesh = null;
         meshRenderer.material = null;
+    }
+
+    private float calculateGrowPercentage()
+    {
+        return (growthPoint/maxGrowthPoint) * 100;
     }
 }
