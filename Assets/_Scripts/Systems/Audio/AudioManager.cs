@@ -37,11 +37,18 @@ public class AudioManager : MonoBehaviour
 
     private void Start() {
         PlaySound("spring_day");
+        PlaySound("theme_music");
     }
 
     public void PlaySound(string name)
     {
         Sound sound = Array.Find(sounds, sound => sound.name == name);
         sound.source.Play();
+    }
+
+    public void StopSound(string name)
+    {
+        Sound sound = Array.Find(sounds, sound => sound.name == name);
+        sound.source.Stop();
     }
 }

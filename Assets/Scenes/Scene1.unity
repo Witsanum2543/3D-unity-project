@@ -5326,6 +5326,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: theme_music
+    clip: {fileID: 8300000, guid: e650a8ed62dee4e4eaef0e105e369a19, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: run_sound
+    clip: {fileID: 8300000, guid: 5d65dd628ed9fed4a866eab2db64c3d3, type: 3}
+    volume: 0.08
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1001 &431836151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5527,7 +5539,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444275272}
-  m_LocalRotation: {x: 0.0000000067070998, y: 0.9344672, z: -0.35604927, w: -0.000000015845327}
+  m_LocalRotation: {x: -0.0000000067070998, y: 0.9344672, z: -0.35604927, w: 0.000000015845327}
   m_LocalPosition: {x: 0, y: 6.8369646, z: 24.755928}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

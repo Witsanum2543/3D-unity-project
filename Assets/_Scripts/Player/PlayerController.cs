@@ -72,4 +72,9 @@ public class PlayerController : MonoBehaviour
         return GetComponentInChildren<PickupController>().isHolding;
     }
 
+    public void playRunSound()
+    {
+        AudioManager.Instance.PlaySound("run_sound");
+    }
+
 }
