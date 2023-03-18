@@ -9,7 +9,13 @@ public class ShopSlot : MonoBehaviour
     ItemData itemData;
 
     public Image itemDisplayImage;
-    public TextMeshProUGUI itemPrice;
+    public TextMeshProUGUI itemPriceText;
+    public TextMeshProUGUI itemAmountText;
+    public int amountBuy = 0;
+
+    private GameObject addAmountButton;
+    private GameObject subtractAmountButton;
+
 
     public void Display(ItemData item)
     {
@@ -17,14 +23,40 @@ public class ShopSlot : MonoBehaviour
         if (itemData != null)
         {
             itemDisplayImage.sprite = itemData.itemIcon;
-            itemPrice.text = "$ " + itemData.price.ToString();
+            itemPriceText.text = "$ " + itemData.price.ToString();
+            itemAmountText.text = amountBuy.ToString();
             itemDisplayImage.gameObject.SetActive(true);
-            itemPrice.gameObject.SetActive(true);
+            itemPriceText.gameObject.SetActive(true);
+            itemAmountText.gameObject.SetActive(true);
             return;
         }
 
         itemDisplayImage.gameObject.SetActive(false);
-        itemPrice.gameObject.SetActive(false);
+        itemPriceText.gameObject.SetActive(false);
+        itemAmountText.gameObject.SetActive(false);
+
+    }
+
+    public void addAmount()
+    {
+        amountBuy++;
+        itemAmountText.text = amountBuy.ToString();
+        ShopManager.Instance.addItem(itemData);
+    }
+
+    public void subtractAmount()
+    {
+        if (amountBuy - 1 < 0){
+            return;
+        }
+        amountBuy--;
+        itemAmountText.text = amountBuy.ToString();
+        ShopManager.Instance.substractItem(itemData);
+    }
+
+    public void resetAmount()
+    {
+        amountBuy = 0;
     }
 
 }

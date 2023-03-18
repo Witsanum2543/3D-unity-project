@@ -9,11 +9,9 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
-    [Header ("Shop Item slot")]
-    public ShopSlot[] shopSlots;
-
-    // The Shop panel
+    [Header ("Panel gameobject")]
     public GameObject shopPanel;
+    public GameObject mainScreen;
 
     [Header ("Main Screen")]
     public TextMeshProUGUI money; 
@@ -30,24 +28,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void Start() {
-        RenderShop();
-    }
-
-    public void RenderShop()
-    {
-        ItemData[] shopItems = ShopManager.Instance.itemList;
-        for (int i=0; i<shopSlots.Length; i++)
-        {
-            shopSlots[i].Display(shopItems[i]);
-        }
-    }
-
     public void ToggleShopPanel()
     {
+        ShopManager.Instance.RenderShop();
         shopPanel.SetActive(!shopPanel.activeSelf);
-
-        RenderShop();
+        mainScreen.SetActive(!mainScreen.activeSelf);
+        
     }
 
     public void updateMoneyText()
