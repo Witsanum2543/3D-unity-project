@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 0
   productName: milk
-  price: 100
+  price: 300
   storageBlock: {fileID: 0}
 --- !u!1001 &3082745517546860477
 PrefabInstance:

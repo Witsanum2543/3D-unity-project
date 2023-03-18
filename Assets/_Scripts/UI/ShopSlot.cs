@@ -39,6 +39,7 @@ public class ShopSlot : MonoBehaviour
 
     public void addAmount()
     {
+        AudioManager.Instance.PlaySound("add_amount_buy");
         amountBuy++;
         itemAmountText.text = amountBuy.ToString();
         ShopManager.Instance.addItem(itemData);
@@ -46,6 +47,7 @@ public class ShopSlot : MonoBehaviour
 
     public void subtractAmount()
     {
+        AudioManager.Instance.PlaySound("subtract_amount_buy");
         if (amountBuy - 1 < 0){
             return;
         }

@@ -123,6 +123,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (selectedObject != null) {
             selectedObject.PickUp(playerController.pickupPivot);
+            AudioManager.Instance.PlaySound("pickup_item");
             // After pickup item, deselect that item
             selectedObject = null;
             return;
@@ -132,6 +133,7 @@ public class PlayerInteraction : MonoBehaviour
             if (playerPickupController.getPickUpObject() == null) {
                 GameObject product = selectedSoil.TryHarvesting();
                 if (product != null) {
+                    AudioManager.Instance.PlaySound("pickup_item");
                     playerPickupController.setPickupObject(product.GetComponent<PickUpObject>());
                     product.GetComponent<PickUpObject>().PickUp(playerPickupController.gameObject);
                 }
@@ -145,6 +147,7 @@ public class PlayerInteraction : MonoBehaviour
             if (playerPickupController.isHolding) {
                 // Check if player holding watercan while press E ?
                 if (playerPickupController.getPickUpObject().objectType == EObjectType.Bucket) {
+                    AudioManager.Instance.PlaySound("watering");
                     selectedSoil.Watering();
                 }
                 // Check if player holding seed while press E ?
@@ -153,6 +156,7 @@ public class PlayerInteraction : MonoBehaviour
                     SeedData seedData = playerPickupController.getPickUpObject().GetComponent<SeedData>();
 
                     if (selectedSoil.Seeding(seedData) == true) {
+                        AudioManager.Instance.PlaySound("seeding");
                         playerPickupController.destroyHoldingObject();
                     }
                 }

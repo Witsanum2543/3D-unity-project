@@ -21,7 +21,6 @@ public class StorageSystem : MonoBehaviour
     }
 
     // Finding empty spot in storage to fit in new coming product
-    // TODO: case if all position are full ?
     public void storeNewProduct(GameObject comingProduct)
     {
         foreach(GameObject floor in floors) {

@@ -52,7 +52,7 @@ public class AnimalProduct : MonoBehaviour, ITimeTracker
         if (isHungry())
         {
             if (!animalFoodArea.isEmpty()) {
-                foodPoint += animalFoodArea.animalEatFood(2);
+                foodPoint += animalFoodArea.animalEatFood(10);
             }
         }
 

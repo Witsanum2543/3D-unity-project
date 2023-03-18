@@ -140,6 +140,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 0
+  productName: tomato
+  price: 250
+  storageBlock: {fileID: 0}
 --- !u!54 &5616666630166492437
 Rigidbody:
   m_ObjectHideFlags: 0

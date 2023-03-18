@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
         {
             // If player holding something, player cant interact with other thing
             if (pickupController.isHolding) {
+                AudioManager.Instance.PlaySound("drop_item");
                 pickupController.dropItem();
             } else {
                 playerInteraction.InteractMouse();

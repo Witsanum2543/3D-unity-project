@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ShopManager : MonoBehaviour
+public class ShopManager : MonoBehaviour, ITimeTracker
 {
     public static ShopManager Instance { get; private set; }
 
@@ -12,11 +12,16 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI money;
     public TextMeshProUGUI totalPriceBuyText;
     public TextMeshProUGUI totalWeightBuyText;
+    public TextMeshProUGUI truckArriveTime;
 
     public Dictionary<ItemData, int> itemBuyingDictionary;
+    public Dictionary<ItemData, int> cargoToDeliver;
     public int totalPriceBuy = 0;
     public int totalWeightBuy = 0;
     public int truckCapacity = 20;
+
+    [Header ("Storage area")]
+    public StorageSystem storageArea;
 
     private void Awake() {
         if (Instance != null && Instance != this)
@@ -30,7 +35,11 @@ public class ShopManager : MonoBehaviour
     }
 
     private void Start() {
+        TimeSystem.Instance.RegisterTracker(this);
         itemBuyingDictionary = new Dictionary<ItemData, int>();
+
+        // Initialize All Text
+        truckArriveTime.text = "Truck : Ready";
     }
 
     public void resetAmountBuy()
@@ -41,7 +50,6 @@ public class ShopManager : MonoBehaviour
             shopSlot.resetAmount();
         }
 
-        // Reset dictionary
         itemBuyingDictionary.Clear();
         totalPriceBuy = 0;
         totalWeightBuy = 0;
@@ -97,10 +105,18 @@ public class ShopManager : MonoBehaviour
 
     public void buyButton()
     {
+        AudioManager.Instance.PlaySound("buy");
+        if (totalPriceBuy == 0) return;
         if (totalPriceBuy > GameState.Instance.money) return;
         if (totalWeightBuy > truckCapacity) return;
+        if (GameState.Instance.truckArrive != 0) return;
         
         GameState.Instance.changeMoney(-totalPriceBuy);
+        GameState.Instance.sendTruckOut(totalWeightBuy);
+        // Prevent Text display delay
+        truckArriveTime.text = "Truck : " + GameState.Instance.truckArrive;
+        // Clone dict
+        cargoToDeliver = new Dictionary<ItemData, int>(itemBuyingDictionary);
         RenderShop();
     }
 
@@ -111,6 +127,32 @@ public class ShopManager : MonoBehaviour
         for (int i=0; i<shopSlotList.Length; i++)
         {
             shopSlotList[i].Display(itemSellingList[i]);
+        }
+    }
+
+    private void storeItemToStorage()
+    {
+        foreach (KeyValuePair<ItemData, int> item in cargoToDeliver)
+        {
+            for (int i=0; i<item.Value; i++)
+            {
+                storageArea.storeNewProduct(item.Key.gameModel);
+            }
+        }
+        cargoToDeliver = null;
+    }   
+
+    public void ClockUpdate(GameTimeStamp timeStamp)
+    {
+
+        truckArriveTime.text = "Truck : " + GameState.Instance.truckArrive;
+        if (GameState.Instance.truckArrive == 0)
+        {
+            truckArriveTime.text = "Truck : Ready";
+        }
+        if (cargoToDeliver != null && GameState.Instance.truckArrive == 0)
+        {
+            storeItemToStorage();
         }
     }
     
