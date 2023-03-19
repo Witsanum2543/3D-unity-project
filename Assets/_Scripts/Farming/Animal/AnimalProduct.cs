@@ -22,6 +22,8 @@ public class AnimalProduct : MonoBehaviour, ITimeTracker
 
     void Start()
     {
+        storageArea = GameObject.Find("AnimalProductStorage").GetComponent<StorageSystem>();
+        animalFoodArea = FindObjectOfType<AnimalFoodArea>();
         foodBar = GetComponentInChildren<FoodBar>();
         foodPoint = maximumFoodPoint;
         TimeSystem.Instance.RegisterTracker(this);

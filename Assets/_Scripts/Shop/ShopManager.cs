@@ -7,8 +7,10 @@ public class ShopManager : MonoBehaviour, ITimeTracker
 {
     public static ShopManager Instance { get; private set; }
 
+    
     public ShopSlot[] shopSlotList;
     public ItemData[] itemSellingList;
+    [Header ("Text")]
     public TextMeshProUGUI money;
     public TextMeshProUGUI totalPriceBuyText;
     public TextMeshProUGUI totalWeightBuyText;
@@ -22,6 +24,11 @@ public class ShopManager : MonoBehaviour, ITimeTracker
 
     [Header ("Storage area")]
     public StorageSystem storageArea;
+
+    // Spawn animal waypoint
+    public GameObject animalSpawnWaypoint;
+    private int xPos;
+    private int zPos;
 
     private void Awake() {
         if (Instance != null && Instance != this)
@@ -134,13 +141,30 @@ public class ShopManager : MonoBehaviour, ITimeTracker
     {
         foreach (KeyValuePair<ItemData, int> item in cargoToDeliver)
         {
+            
             for (int i=0; i<item.Value; i++)
             {
-                storageArea.storeNewProduct(item.Key.gameModel);
+                if (item.Key.itemName == "cow" || item.Key.itemName == "chicken")
+                {
+                    randomSpawnAnimal(item.Key.gameModel);
+                }
+                else
+                {
+                    storageArea.storeNewProduct(item.Key.gameModel);
+                }
             }
+            
         }
         cargoToDeliver = null;
-    }   
+    }
+
+    private void randomSpawnAnimal(GameObject animal)
+    {
+        xPos = Random.Range(-15, 15);
+        zPos = Random.Range(-4, 4);
+        Vector3 spawnPosition = animalSpawnWaypoint.transform.position + new Vector3(xPos, 0.1f, zPos);
+        Instantiate(animal, spawnPosition, Quaternion.identity);
+    }
 
     public void ClockUpdate(GameTimeStamp timeStamp)
     {

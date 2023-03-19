@@ -26,6 +26,7 @@ public class AnimalFoodArea : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other) {
+        if (other.tag != "pickupObject") return;
         if (other.GetComponent<PickUpObject>().objectType == EObjectType.Feed) {
             Destroy(other.gameObject);
             foodPoint += foodPerGrassPack;
