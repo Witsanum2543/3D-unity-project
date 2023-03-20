@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 6145896958673528023}
   - component: {fileID: -8491119724329078767}
   - component: {fileID: -4466895952364020444}
+  - component: {fileID: -5186557293724073812}
   m_Layer: 9
   m_Name: chicken
   m_TagString: Untagged
@@ -372,8 +373,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279fb6f6b84f8b14cb7e0742a4da97a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
   rotationSpeed: 100
+  movementSpeed: 2
+  minRotateTime: 1
+  maxRotateTime: 3
+  minMoveTime: 1
+  maxMoveTime: 3
+  eatGrassTime: 3
+  animator: {fileID: 0}
+--- !u!95 &-5186557293724073812
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654077052478790116}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d382330aff84ada408c5e990c9273095, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &7244401642042844387
 GameObject:
   m_ObjectHideFlags: 0

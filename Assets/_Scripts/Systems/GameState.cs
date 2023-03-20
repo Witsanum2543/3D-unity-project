@@ -54,7 +54,6 @@ public class GameState : MonoBehaviour, ITimeTracker
     public void ClockUpdate(GameTimeStamp timeStamp)
     {
         timeLeft--;
-        UIManager.Instance.updateTimeText();
 
         if (truckArrive != 0)
         {

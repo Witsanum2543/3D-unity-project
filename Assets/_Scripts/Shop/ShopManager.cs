@@ -11,7 +11,7 @@ public class ShopManager : MonoBehaviour, ITimeTracker
     public ShopSlot[] shopSlotList;
     public ItemData[] itemSellingList;
     [Header ("Text")]
-    public TextMeshProUGUI money;
+    public TextMeshProUGUI moneyText;
     public TextMeshProUGUI totalPriceBuyText;
     public TextMeshProUGUI totalWeightBuyText;
     public TextMeshProUGUI truckArriveTime;
@@ -63,7 +63,7 @@ public class ShopManager : MonoBehaviour, ITimeTracker
 
         totalPriceBuyText.text = "";
         totalWeightBuyText.text = totalWeightBuy.ToString() + "/" + truckCapacity.ToString();
-        money.text = "$ " + GameState.Instance.getMoney().ToString();
+        moneyText.text = GameState.Instance.getMoney().ToString();
     }
 
     public void addItem(ItemData item)
@@ -104,6 +104,13 @@ public class ShopManager : MonoBehaviour, ITimeTracker
         totalPriceBuyText.text = "- " + totalPriceBuy.ToString();
         totalWeightBuyText.text = totalWeightBuy.ToString() + "/" + truckCapacity.ToString();
 
+        if (totalWeightBuy > truckCapacity)
+        {
+            totalWeightBuyText.color = new Color(200f/255f, 56f/255f, 56f/255f);;
+        } else {
+            totalWeightBuyText.color = Color.white;
+        }
+
         if (totalPriceBuy == 0)
         {
             totalPriceBuyText.text = "";
@@ -130,7 +137,7 @@ public class ShopManager : MonoBehaviour, ITimeTracker
     public void RenderShop()
     {
         resetAmountBuy();
-        money.text = "$ " + GameState.Instance.getMoney().ToString();
+        moneyText.text = GameState.Instance.getMoney().ToString();
         for (int i=0; i<shopSlotList.Length; i++)
         {
             shopSlotList[i].Display(itemSellingList[i]);

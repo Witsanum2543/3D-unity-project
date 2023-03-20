@@ -23,7 +23,7 @@ public class ShopSlot : MonoBehaviour
         if (itemData != null)
         {
             itemDisplayImage.sprite = itemData.itemIcon;
-            itemPriceText.text = "$ " + itemData.price.ToString();
+            itemPriceText.text = itemData.price.ToString();
             itemAmountText.text = amountBuy.ToString();
             itemDisplayImage.gameObject.SetActive(true);
             itemPriceText.gameObject.SetActive(true);

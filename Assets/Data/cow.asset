@@ -16,5 +16,5 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: f15f8f61e7c36c24bb15afc715e0e6b5, type: 3}
   price: 1000
   weight: 10
-  gameModel: {fileID: 4363191684728030375, guid: 510970af0b7b79f48a1a0df69c2d8664,
+  gameModel: {fileID: 3721987084416944835, guid: 03ec55deb67b58d4fa8b8e0c66e33c4c,
     type: 3}

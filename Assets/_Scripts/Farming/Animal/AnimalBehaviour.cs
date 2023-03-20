@@ -5,11 +5,10 @@ using UnityEngine;
 public class AnimalBehaviour : MonoBehaviour
 {
     public float rotationSpeed = 100f;
-    public float movementSpeed = 10f;
+    public float moveForce = 8f;
+    public float moveTime = 3f;
     public float minRotateTime = 1f;
     public float maxRotateTime = 3f;
-    public float minMoveTime = 1f;
-    public float maxMoveTime = 3f;
     public float eatGrassTime = 3f;
     public Animator animator;
 
@@ -44,7 +43,7 @@ public class AnimalBehaviour : MonoBehaviour
             {
                 StartCoroutine(Rotate());
             }
-            else if (randomValue < 0.67f)
+            else if (randomValue < 1f)
             {
                 StartCoroutine(Move());
             }
@@ -80,9 +79,7 @@ public class AnimalBehaviour : MonoBehaviour
     IEnumerator Move()
     {
         isMoving = true;
-
-        float moveTime = Random.Range(minMoveTime, maxMoveTime);
-        float moveForce = Random.Range(10f, 20f);
+        animator.SetBool("walk", true);
 
         rb.AddForce(transform.forward * moveForce, ForceMode.VelocityChange);
 
@@ -94,18 +91,18 @@ public class AnimalBehaviour : MonoBehaviour
         }
 
         rb.velocity = Vector3.zero;
+        animator.SetBool("walk", false);
         isMoving = false;
     }
 
     IEnumerator EatGrass()
     {
         isEatingGrass = true;
-
-        // animator.SetTrigger("EatGrass");
+        animator.SetBool("eat", true);
 
         yield return new WaitForSeconds(eatGrassTime);
 
-        // animator.SetTrigger("StopEatingGrass");
+        animator.SetBool("eat", false);
         isEatingGrass = false;
     }
 }
