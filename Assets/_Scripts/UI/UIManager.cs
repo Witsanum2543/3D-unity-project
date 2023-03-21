@@ -15,8 +15,10 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     [Header ("Main Screen")]
     public TextMeshProUGUI money;
-    public TextMeshProUGUI truckArriveTime; 
 
+    [Header ("Truck Arrive Bar")]
+    public TruckArriveBar truckArriveBar;
+    public TextMeshProUGUI truckArriveTimeText; 
 
     private void Awake() {
         if (Instance != null && Instance != this)
@@ -33,7 +35,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
         TimeSystem.Instance.RegisterTracker(this);
 
         // Initialize All Text
-        truckArriveTime.text = "Truck : Ready";
+        truckArriveTimeText.text = "Ready";
         money.text = GameState.Instance.getMoney().ToString();
     }
 
@@ -50,12 +52,19 @@ public class UIManager : MonoBehaviour, ITimeTracker
         money.text = GameState.Instance.getMoney().ToString();
     }
 
+    public void startTruck(int totalTime)
+    {
+        // Prevent Text delay due to waiting clockupdate
+        truckArriveTimeText.text = GameState.Instance.truckArrive.ToString();
+        truckArriveBar.startDrive(totalTime);
+    }
+
     public void ClockUpdate(GameTimeStamp timeStamp)
     {
-        truckArriveTime.text = "Truck : " + GameState.Instance.truckArrive;
+        truckArriveTimeText.text = GameState.Instance.truckArrive.ToString();
         if (GameState.Instance.truckArrive == 0)
         {
-            truckArriveTime.text = "Truck : Ready";
+            truckArriveTimeText.text = "Ready";
         }
     }
 }

@@ -49,6 +49,7 @@ public class GameState : MonoBehaviour, ITimeTracker
     public void sendTruckOut(int weight)
     {
         truckArrive = calculateTruckTime(weight);
+        UIManager.Instance.startTruck(truckArrive);
     }
 
     public void ClockUpdate(GameTimeStamp timeStamp)

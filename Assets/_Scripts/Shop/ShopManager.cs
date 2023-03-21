@@ -14,7 +14,6 @@ public class ShopManager : MonoBehaviour, ITimeTracker
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI totalPriceBuyText;
     public TextMeshProUGUI totalWeightBuyText;
-    public TextMeshProUGUI truckArriveTime;
 
     public Dictionary<ItemData, int> itemBuyingDictionary;
     public Dictionary<ItemData, int> cargoToDeliver;
@@ -44,9 +43,6 @@ public class ShopManager : MonoBehaviour, ITimeTracker
     private void Start() {
         TimeSystem.Instance.RegisterTracker(this);
         itemBuyingDictionary = new Dictionary<ItemData, int>();
-
-        // Initialize All Text
-        truckArriveTime.text = "Truck : Ready";
     }
 
     public void resetAmountBuy()
@@ -127,8 +123,7 @@ public class ShopManager : MonoBehaviour, ITimeTracker
         
         GameState.Instance.changeMoney(-totalPriceBuy);
         GameState.Instance.sendTruckOut(totalWeightBuy);
-        // Prevent Text display delay
-        truckArriveTime.text = "Truck : " + GameState.Instance.truckArrive;
+        
         // Clone dict
         cargoToDeliver = new Dictionary<ItemData, int>(itemBuyingDictionary);
         RenderShop();
@@ -175,14 +170,9 @@ public class ShopManager : MonoBehaviour, ITimeTracker
 
     public void ClockUpdate(GameTimeStamp timeStamp)
     {
-
-        truckArriveTime.text = "Truck : " + GameState.Instance.truckArrive;
-        if (GameState.Instance.truckArrive == 0)
-        {
-            truckArriveTime.text = "Truck : Ready";
-        }
         if (cargoToDeliver != null && GameState.Instance.truckArrive == 0)
-        {
+        {   
+            AudioManager.Instance.PlaySound("car_horn");
             storeItemToStorage();
         }
     }
