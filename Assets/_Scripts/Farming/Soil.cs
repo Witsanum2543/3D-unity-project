@@ -13,6 +13,7 @@ public class Soil : MonoBehaviour, ITimeTracker
     [SerializeField] public Mesh SoilDry;
     [SerializeField] public Mesh soilWatered;
     public SoilState soilState;
+    public int remainWateredTime = 45;
     private MeshFilter currentMesh;
 
     [Header ("Soil Seed")]
@@ -81,7 +82,7 @@ public class Soil : MonoBehaviour, ITimeTracker
         if (soilState == SoilState.SoilWatered) {
             int secondElapsed = GameTimeStamp.CompareTimeStamps(timeWatered, timeStamp);
             
-            if (secondElapsed >= 30)
+            if (secondElapsed >= remainWateredTime)
             {
                 // Dry the soil
                 SwitchSoilState(SoilState.SoilDry);

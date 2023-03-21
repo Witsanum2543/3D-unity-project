@@ -342,7 +342,7 @@ MonoBehaviour:
     type: 3}
   storageArea: {fileID: 0}
   maxProducePoint: 10
-  maximumFoodPoint: 60
+  maximumFoodPoint: 50
   foodPoint: 0
   animalFoodArea: {fileID: 0}
 --- !u!54 &-8491119724329078767
@@ -374,11 +374,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
-  movementSpeed: 2
+  moveSpeed: 2
+  moveTime: 3
   minRotateTime: 1
   maxRotateTime: 3
-  minMoveTime: 1
-  maxMoveTime: 3
   eatGrassTime: 3
   animator: {fileID: 0}
 --- !u!95 &-5186557293724073812

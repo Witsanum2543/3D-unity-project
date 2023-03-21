@@ -5,8 +5,8 @@ using UnityEngine;
 public class AnimalBehaviour : MonoBehaviour
 {
     public float rotationSpeed = 100f;
-    public float moveForce = 8f;
-    public float moveTime = 3f;
+    public float moveSpeed = 1f;
+    public float moveTime = 2f;
     public float minRotateTime = 1f;
     public float maxRotateTime = 3f;
     public float eatGrassTime = 3f;
@@ -43,7 +43,7 @@ public class AnimalBehaviour : MonoBehaviour
             {
                 StartCoroutine(Rotate());
             }
-            else if (randomValue < 1f)
+            else if (randomValue < 0.67f)
             {
                 StartCoroutine(Move());
             }
@@ -81,16 +81,15 @@ public class AnimalBehaviour : MonoBehaviour
         isMoving = true;
         animator.SetBool("walk", true);
 
-        rb.AddForce(transform.forward * moveForce, ForceMode.VelocityChange);
+        Vector3 velocity = transform.forward * moveSpeed;
 
-        float elapsed = 0f;
-        while (elapsed < moveTime)
+        float time = 0f;
+        while (time < moveTime)
         {
-            elapsed += Time.deltaTime;
+            transform.position += velocity * Time.deltaTime;
+            time += Time.deltaTime;
             yield return null;
         }
-
-        rb.velocity = Vector3.zero;
         animator.SetBool("walk", false);
         isMoving = false;
     }

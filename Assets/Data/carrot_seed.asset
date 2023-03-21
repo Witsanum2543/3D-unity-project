@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73c8e9bac74fc1444a569a4f01d925af, type: 3}
-  m_Name: chicken
+  m_Name: carrot_seed
   m_EditorClassIdentifier: 
-  itemName: chicken
-  itemIcon: {fileID: 21300000, guid: dec7afafffe5a934281691c5f3815f27, type: 3}
-  price: 500
-  weight: 4
-  gameModel: {fileID: 5159630363075170075, guid: 13b396d5ebaca634b9d7b8c3a6665a77,
+  itemName: carrot_seed
+  itemIcon: {fileID: 0}
+  price: 200
+  weight: 1
+  gameModel: {fileID: 7305465903526402227, guid: efbd068e593cd2b4e9acff5377d417d9,
     type: 3}

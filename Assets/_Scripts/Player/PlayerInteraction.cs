@@ -26,19 +26,24 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        processingRaycast();
+        // processingRaycast();
+        processingRaycast2();
+
     }
 
     /* 
         This function will Raycast "Interact Raycast" layer to let player interact with it
         It sorting distance also the tag to give specific behaviour that we want. 
     */
+
+    
     void processingRaycast() {
         // ignore everything else except "Interact Raycast"
         int layerMaskToInteract = LayerMask.GetMask(layerMaskToInteractName);
 
         RaycastHit[] hits = Physics.BoxCastAll(transform.position, boxSize, transform.forward, transform.rotation, maxDistance, layerMaskToInteract);
 
+        
         Array.Sort(hits, (x, y) => {
             // Compare the tags first.
             int tagCompare = x.collider.tag.CompareTo(y.collider.tag);
@@ -55,19 +60,57 @@ public class PlayerInteraction : MonoBehaviour
             }
         });
        
-       if (hits.Length != 0) {
-            OnInteractableHit(hits[0]);
-       } else {
-            // If Raycast didn't hit anything interactable, it mean that we must reset selectedSoil and selectedObject
-            if (selectedSoil != null)
-            {
+        if (hits.Length != 0) {
+                OnInteractableHit(hits[0]);
+        } else {
+                // If Raycast didn't hit anything interactable, it mean that we must reset selectedSoil and selectedObject
+                if (selectedSoil != null)
+                {
+                    selectedSoil.Select(false);
+                    selectedSoil = null;
+                }
+                selectedObject = null;
+                
+            }
+       
+    }
+
+    void processingRaycast2() {
+        // ignore everything else except "Interact Raycast"
+        int layerMaskToInteract = LayerMask.GetMask(layerMaskToInteractName);
+
+        RaycastHit[] hits = Physics.BoxCastAll(transform.position, boxSize, transform.forward, transform.rotation, maxDistance, layerMaskToInteract);
+
+        
+        List<RaycastHit> validHits = new List<RaycastHit>();
+        foreach (RaycastHit hit in hits) {
+            if (hit.collider.CompareTag("pickupObject")) {
+                validHits.Add(hit);
+            }
+        }
+        
+        if (validHits.Count > 0) {
+            validHits.Sort((x, y) => {
+                // Sort by distance.
+                return x.distance.CompareTo(y.distance);
+            });
+
+            OnInteractableHit(validHits[0]);
+        } else {
+            // If Raycast didn't hit anything interactable, it means that we must reset selectedSoil and selectedObject
+            if (selectedSoil != null) {
                 selectedSoil.Select(false);
                 selectedSoil = null;
             }
-             selectedObject = null;
-            
+            selectedObject = null;
         }
 
+        // For soil interaction we use RayCast because using BoxCast will have 0 distance weird behaviour
+        RaycastHit soilHit;
+        if (Physics.Raycast(transform.position, Vector3.down, out soilHit, 2, layerMaskToInteract))
+        {
+            OnInteractableHit(soilHit);
+        }
        
     }
 

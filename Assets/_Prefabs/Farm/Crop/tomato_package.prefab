@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 1
   productName: 
+  price: 0
   storageBlock: {fileID: 0}
 --- !u!54 &919132148749771145
 Rigidbody:

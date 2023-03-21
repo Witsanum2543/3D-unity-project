@@ -357,7 +357,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5159630363075170075}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 75
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -380,7 +380,7 @@ MonoBehaviour:
   productObject: {fileID: 2648683112268650634, guid: a601e3de9db816247835dad6ed692802,
     type: 3}
   storageArea: {fileID: 0}
-  maxProducePoint: 10
+  maxProducePoint: 30
   maximumFoodPoint: 60
   foodPoint: 0
   animalFoodArea: {fileID: 0}
@@ -397,11 +397,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
-  movementSpeed: 2
+  moveSpeed: 2
+  moveTime: 3
   minRotateTime: 1
   maxRotateTime: 3
-  minMoveTime: 1
-  maxMoveTime: 3
   eatGrassTime: 3
   animator: {fileID: 5430173107178511073}
 --- !u!1 &6389935017493664467

@@ -45,7 +45,7 @@ public class AnimalProduct : MonoBehaviour, ITimeTracker
 
     public void ClockUpdate(GameTimeStamp timeStamp)
     {
-        if (calculateFoodPercentage() >= 80) {
+        if (calculateFoodPercentage() >= 30) {
             Producing();
         }
 

@@ -13,4 +13,8 @@ public class FoodBar : MonoBehaviour
        foodBarSprite.fillAmount = percentage / 100;
     }
 
+    private void FixedUpdate() {
+        transform.rotation = Quaternion.identity;
+    }
+
 }
