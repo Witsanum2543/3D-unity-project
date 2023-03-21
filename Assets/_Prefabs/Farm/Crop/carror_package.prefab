@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7375170053791429457}
   - component: {fileID: 5660727085899188763}
   - component: {fileID: 9199529590590484111}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: -8599544084957602332}
   - component: {fileID: -2000529823889304797}
   - component: {fileID: 4522155154090950370}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: carror_package
-  m_TagString: Untagged
+  m_TagString: pickupObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,4 +183,4 @@ MonoBehaviour:
   harvestable: {fileID: 1850813298930185354, guid: eb72a8c0fb537af4984dc486ef072e0e,
     type: 3}
   product: {fileID: 3124264799354647012, guid: 09a20b416983be54da296f552e8af56c, type: 3}
-  maxGrowthPoint: 60
+  maxGrowthPoint: 120

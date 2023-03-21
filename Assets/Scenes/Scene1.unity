@@ -22184,10 +22184,10 @@ MonoBehaviour:
   - {fileID: 1489499480}
   - {fileID: 132053631}
   itemSellingList:
-  - {fileID: 11400000, guid: 31673c85ec590fb40afc4953a43fdb3e, type: 2}
   - {fileID: 11400000, guid: 90b3f445af71dcb4bb475ba3f7ac073d, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 0c71a6ce37c31574a83ecb3a3eb766a3, type: 2}
+  - {fileID: 11400000, guid: 57d0b1506b71a1c449d835c925bba9cb, type: 2}
+  - {fileID: 11400000, guid: 31673c85ec590fb40afc4953a43fdb3e, type: 2}
   - {fileID: 11400000, guid: d56b5e31ce6a79443b43e2e4edd6eee3, type: 2}
   - {fileID: 11400000, guid: a4748bfd2b6ada04591aa51c28e52e76, type: 2}
   moneyText: {fileID: 576354831}
@@ -23650,16 +23650,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ItemSlot (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3131799212053818911, guid: cef64911b0f24ad4b9396fa5d447f690,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 38.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 3131799212053818911, guid: cef64911b0f24ad4b9396fa5d447f690,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cef64911b0f24ad4b9396fa5d447f690, type: 3}
