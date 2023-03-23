@@ -51,6 +51,12 @@ public class Soil : MonoBehaviour, ITimeTracker
     }
 
     public void Select(bool toggle) {
+        if (toggle == true)
+        {
+            crop.renderGrowBar();
+        } else {
+            crop.removeGrowBar();
+        }
         select.SetActive(toggle);
     }
 

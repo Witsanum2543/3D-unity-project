@@ -26,9 +26,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        // processingRaycast();
-        processingRaycast2();
-
+        processingRaycast();
     }
 
     /* 
@@ -36,46 +34,7 @@ public class PlayerInteraction : MonoBehaviour
         It sorting distance also the tag to give specific behaviour that we want. 
     */
 
-    
     void processingRaycast() {
-        // ignore everything else except "Interact Raycast"
-        int layerMaskToInteract = LayerMask.GetMask(layerMaskToInteractName);
-
-        RaycastHit[] hits = Physics.BoxCastAll(transform.position, boxSize, transform.forward, transform.rotation, maxDistance, layerMaskToInteract);
-
-        
-        Array.Sort(hits, (x, y) => {
-            // Compare the tags first.
-            int tagCompare = x.collider.tag.CompareTo(y.collider.tag);
-            if (tagCompare != 0) {
-                // If the tags are different, prioritize the "pickupObject" tag.
-                if (x.collider.tag == "pickupObject") {
-                    return -1; // x should come before y
-                } else {
-                    return 1; // y should come before x
-                }
-            } else {
-                // If the tags are the same, sort by distance.
-                return x.distance.CompareTo(y.distance);
-            }
-        });
-       
-        if (hits.Length != 0) {
-                OnInteractableHit(hits[0]);
-        } else {
-                // If Raycast didn't hit anything interactable, it mean that we must reset selectedSoil and selectedObject
-                if (selectedSoil != null)
-                {
-                    selectedSoil.Select(false);
-                    selectedSoil = null;
-                }
-                selectedObject = null;
-                
-            }
-       
-    }
-
-    void processingRaycast2() {
         // ignore everything else except "Interact Raycast"
         int layerMaskToInteract = LayerMask.GetMask(layerMaskToInteractName);
 

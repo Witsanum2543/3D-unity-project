@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Crop : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Crop : MonoBehaviour
     }
 
     public CropState currentCropState = CropState.None;
+    public GameObject growBarCanvas;
+    public Image growBarSprite;
 
     // SeedData
     private GameObject seedObject;
@@ -106,5 +109,19 @@ public class Crop : MonoBehaviour
     private float calculateGrowPercentage()
     {
         return (growthPoint/maxGrowthPoint) * 100;
+    }
+
+    public void renderGrowBar()
+    {
+        if (currentCropState != CropState.None)
+        {
+            growBarCanvas.SetActive(true);
+            growBarSprite.fillAmount = calculateGrowPercentage() / 100;
+        }
+    }
+    
+    public void removeGrowBar()
+    {
+        growBarCanvas.SetActive(false);
     }
 }

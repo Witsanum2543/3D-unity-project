@@ -115,12 +115,18 @@ public class ShopManager : MonoBehaviour, ITimeTracker
 
     public void buyButton()
     {
-        AudioManager.Instance.PlaySound("buy");
-        if (totalPriceBuy == 0) return;
-        if (totalPriceBuy > GameState.Instance.money) return;
-        if (totalWeightBuy > truckCapacity) return;
-        if (GameState.Instance.truckArrive != 0) return;
         
+        if (totalPriceBuy == 0 ||
+            totalPriceBuy > GameState.Instance.money ||
+            totalWeightBuy > truckCapacity ||
+            GameState.Instance.truckArrive != 0
+        ) {
+            AudioManager.Instance.PlaySound("buy_cooldown") ;
+            return;
+        }
+        
+        AudioManager.Instance.PlaySound("buy");
+
         GameState.Instance.changeMoney(-totalPriceBuy);
         GameState.Instance.sendTruckOut(totalWeightBuy);
         
