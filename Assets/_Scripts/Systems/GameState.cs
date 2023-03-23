@@ -13,6 +13,14 @@ public class GameState : MonoBehaviour, ITimeTracker
     public int baseTruckTime = 10;
     public int weightScaleTime = 1;
 
+    [Header ("Objective")]
+    public List<ObjectiveData> objectiveList; 
+    // using for calculate total work that player need to do
+    public int minWork;
+    public int maxWork;
+    [Range(1, 5)]
+    public int objectiveAmount;
+
     private void Awake() {
         // If more than one instance, destroy the extra
         if (Instance != null && Instance != this)
@@ -27,6 +35,8 @@ public class GameState : MonoBehaviour, ITimeTracker
     }
 
     private void Start() {
+        randomizeObjective();
+        ObjectiveManager.Instance.RenderObjective();
         TimeSystem.Instance.RegisterTracker(this);
     }
 
@@ -50,6 +60,27 @@ public class GameState : MonoBehaviour, ITimeTracker
     {
         truckArrive = calculateTruckTime(weight);
         UIManager.Instance.startTruck(truckArrive);
+    }
+
+    private void randomizeObjective()
+    {
+        // Randomly select object by remove objective so that it meet totalObjective amount
+        int numToRemove = objectiveList.Count - objectiveAmount;
+        for (int i = 0; i < numToRemove; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, objectiveList.Count);
+            objectiveList.RemoveAt(randomIndex);
+        }
+
+        foreach(ObjectiveData objective in objectiveList)
+        {
+            objective.requireAmount = Random.Range(minWork, maxWork+1);
+        }
+    }
+
+    public List<ObjectiveData> getObjectives()
+    {
+        return objectiveList;
     }
 
     public void ClockUpdate(GameTimeStamp timeStamp)

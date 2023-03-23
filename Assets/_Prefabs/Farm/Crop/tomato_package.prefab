@@ -97,7 +97,7 @@ MonoBehaviour:
   seed: {fileID: 8456741313730920631, guid: 326b70f9585b1fa44a4467224de45f3a, type: 3}
   seedling: {fileID: 9114578422799587195, guid: 9997db6215d9fae4d8547231994dc1d1,
     type: 3}
-  harvestable: {fileID: 6401662300211796536, guid: 5ee1f2f83e9c7eb48b1239a15ec7b1d7,
+  harvestable: {fileID: 1992741425384502074, guid: 609fd0b5120391c44bc5fbe8f5805833,
     type: 3}
   product: {fileID: 5217686187941575090, guid: dca9f761f89b6a74393acb4cedf92b82, type: 3}
   maxGrowthPoint: 60
