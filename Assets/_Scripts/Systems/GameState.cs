@@ -35,6 +35,7 @@ public class GameState : MonoBehaviour, ITimeTracker
     }
 
     private void Start() {
+        Time.timeScale = 1;
         randomizeObjective();
         ObjectiveManager.Instance.RenderObjective();
         TimeSystem.Instance.RegisterTracker(this);
@@ -99,17 +100,35 @@ public class GameState : MonoBehaviour, ITimeTracker
                 ObjectiveManager.Instance.RenderObjective();
             }
         }
+        checkWinCondition();
     }
 
-    public void winCondition()
+    public void checkWinCondition()
     {
+        foreach(ObjectiveData objective in objectiveList)
+        {
+            if (!objective.isComplete) return;
+        }
+        Time.timeScale = 0;
+        UIManager.Instance.winScreen.SetActive(true);
+        return;
+    }
 
+    public void checkLose()
+    {
+        if (timeLeft <= -1)
+        {
+            Time.timeScale = 0;
+            UIManager.Instance.loseScreen.SetActive(true);
+            return;
+        }
     }
 
     public void ClockUpdate(GameTimeStamp timeStamp)
     {
         timeLeft--;
-
+        checkLose();
+        
         if (truckArrive != 0)
         {
             truckArrive--;

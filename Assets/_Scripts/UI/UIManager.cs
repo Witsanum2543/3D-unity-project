@@ -20,6 +20,10 @@ public class UIManager : MonoBehaviour, ITimeTracker
     public TruckArriveBar truckArriveBar;
     public TextMeshProUGUI truckArriveTimeText; 
 
+    [Header ("Win Lose Screen")]
+    public GameObject winScreen;
+    public GameObject loseScreen;
+
     private void Awake() {
         if (Instance != null && Instance != this)
         {

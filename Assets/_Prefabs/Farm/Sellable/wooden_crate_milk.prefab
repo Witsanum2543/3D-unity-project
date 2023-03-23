@@ -175,7 +175,7 @@ MonoBehaviour:
   objectType: 0
   productName: milk
   objectiveType: 4
-  price: 300
+  price: 500
   storageBlock: {fileID: 0}
 --- !u!1001 &3082745517546860477
 PrefabInstance:
