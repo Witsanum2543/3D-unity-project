@@ -5714,6 +5714,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: quest_complete
+    clip: {fileID: 8300000, guid: 2dcbfc92635325b428499f322ea5b0aa, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1001 &431836151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5915,7 +5921,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444275272}
-  m_LocalRotation: {x: -0.38980302, y: 0.000000016110173, z: -0.000000006138273, w: 0.9208983}
+  m_LocalRotation: {x: -0.38980302, y: -0.000000016110173, z: 0.000000006138273, w: 0.9208983}
   m_LocalPosition: {x: 0, y: -7.0059013, z: 10.3207245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10725,9 +10731,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e6c39986c9137e148969ffc873f595c8, type: 2}
   - {fileID: 11400000, guid: f5e6c44c01533d94bb54df136c2449f6, type: 2}
   - {fileID: 11400000, guid: 5dc057ccfd3b6c143b6be16ad1ba5914, type: 2}
-  minWork: 2
-  maxWork: 5
-  objectiveAmount: 4
+  minWork: 1
+  maxWork: 2
+  objectiveAmount: 1
 --- !u!1 &782446701
 GameObject:
   m_ObjectHideFlags: 0
@@ -30403,6 +30409,11 @@ PrefabInstance:
     - target: {fileID: 3013718807880165056, guid: 86c1a430f4f151440936550223141588,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208046756995188330, guid: 86c1a430f4f151440936550223141588,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4582142078306877684, guid: 86c1a430f4f151440936550223141588,

@@ -85,6 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 0
   productName: egg
+  objectiveType: 3
   price: 200
   storageBlock: {fileID: 0}
 --- !u!1 &6435582988846243923

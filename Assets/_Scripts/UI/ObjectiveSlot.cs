@@ -8,6 +8,7 @@ public class ObjectiveSlot : MonoBehaviour
 {
     public Image objectiveDisplayImage;
     public TextMeshProUGUI amount;
+    public GameObject checkMark;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,16 @@ public class ObjectiveSlot : MonoBehaviour
     public void Display(ObjectiveData objective)
     {  
         objectiveDisplayImage.sprite = objective.objectiveIcon;
+        if (objective.isComplete)
+        {
+            checkMark.SetActive(true);
+            amount.gameObject.SetActive(false);
+        }
+        if (amount.gameObject.activeSelf)
+        {
         amount.text = objective.currentAmount + "/" + objective.requireAmount;
+        }
+        
+
     }
 }

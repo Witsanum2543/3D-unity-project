@@ -55,6 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 0
   productName: carrot
+  objectiveType: 2
   price: 500
   storageBlock: {fileID: 0}
 --- !u!54 &3956135731090736523

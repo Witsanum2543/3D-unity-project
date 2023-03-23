@@ -10,4 +10,11 @@ public class ObjectiveData : ScriptableObject
     public int requireAmount;
     public int currentAmount;
     public bool isComplete;
+
+    // Reset the values to their default state
+    public void Reset()
+    {
+        currentAmount = 0;
+        isComplete = false;
+    }
 }

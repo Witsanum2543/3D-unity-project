@@ -74,6 +74,7 @@ public class GameState : MonoBehaviour, ITimeTracker
 
         foreach(ObjectiveData objective in objectiveList)
         {
+            objective.Reset();
             objective.requireAmount = Random.Range(minWork, maxWork+1);
         }
     }
@@ -81,6 +82,28 @@ public class GameState : MonoBehaviour, ITimeTracker
     public List<ObjectiveData> getObjectives()
     {
         return objectiveList;
+    }
+
+    public void updateObjective(EObjectiveType type)
+    {
+        foreach(ObjectiveData objective in objectiveList)
+        {
+            if (objective.objectiveType == type)
+            {
+                objective.currentAmount += 1;
+                if (objective.currentAmount >= objective.requireAmount)
+                {
+                    AudioManager.Instance.PlaySound("quest_complete");
+                    objective.isComplete = true;
+                }
+                ObjectiveManager.Instance.RenderObjective();
+            }
+        }
+    }
+
+    public void winCondition()
+    {
+
     }
 
     public void ClockUpdate(GameTimeStamp timeStamp)

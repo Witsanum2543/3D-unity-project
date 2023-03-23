@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 0
   productName: tomato
+  objectiveType: 0
   price: 250
   storageBlock: {fileID: 0}
 --- !u!54 &5616666630166492437
