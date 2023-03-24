@@ -104,6 +104,8 @@ public class Crop : MonoBehaviour
 
         meshFilter.mesh = null;
         meshRenderer.material = null;
+
+        growthPoint = 0;
     }
 
     private float calculateGrowPercentage()
