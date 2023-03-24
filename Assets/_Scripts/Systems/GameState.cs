@@ -35,7 +35,7 @@ public class GameState : MonoBehaviour, ITimeTracker
     }
 
     private void Start() {
-        Time.timeScale = 2;
+        Time.timeScale = 1;
         randomizeObjective();
         ObjectiveManager.Instance.RenderObjective();
         TimeSystem.Instance.RegisterTracker(this);

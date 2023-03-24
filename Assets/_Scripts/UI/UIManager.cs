@@ -63,6 +63,8 @@ public class UIManager : MonoBehaviour, ITimeTracker
         truckArriveBar.startDrive(totalTime);
     }
 
+
+
     public void ClockUpdate(GameTimeStamp timeStamp)
     {
         truckArriveTimeText.text = GameState.Instance.truckArrive.ToString();
