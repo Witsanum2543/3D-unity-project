@@ -8,8 +8,11 @@ public class GameState : MonoBehaviour, ITimeTracker
 
     [HideInInspector]
     public int truckArrive = 0;
+    
+    public GameLog gameLog;
 
     [Header ("Game Difficultly")]
+    private int totalTime;
     public int timeLeft;
     public int money;
     public int baseTruckTime = 5;
@@ -23,10 +26,13 @@ public class GameState : MonoBehaviour, ITimeTracker
     public int timeIncrease;
     public int moneyIncrease;
     public int workIncrease;
+    public int objectiveIncrease;
 
     [Header ("Objective")]
     public List<ObjectiveData> objectiveList; 
     // using for calculate total work that player need to do
+
+        
 
     private void Awake() {
         Time.timeScale = 1;
@@ -43,6 +49,8 @@ public class GameState : MonoBehaviour, ITimeTracker
     }
 
     private void Start() {
+        // Initialize totalTime
+        totalTime = timeLeft;
         randomizeObjective();
         ObjectiveManager.Instance.RenderObjective();
         TimeSystem.Instance.RegisterTracker(this);
@@ -54,7 +62,7 @@ public class GameState : MonoBehaviour, ITimeTracker
 
         timeLeft += currentLevel * timeIncrease; 
         money += currentLevel * moneyIncrease; 
-        objectiveAmount += currentLevel;
+        objectiveAmount += objectiveIncrease;
         minWork += currentLevel * workIncrease;
         maxWork += currentLevel * (workIncrease * 2);
 
@@ -63,6 +71,7 @@ public class GameState : MonoBehaviour, ITimeTracker
     public void changeMoney(int change)
     {
         money += change;
+        gameLog.moneyGain += change;
         UIManager.Instance.updateMoneyText();
     }
 
@@ -114,17 +123,18 @@ public class GameState : MonoBehaviour, ITimeTracker
                 ObjectiveManager.Instance.RenderObjective();
             }
         }
-        checkWinCondition();
+        checkWin();
     }
 
-    public void checkWinCondition()
+    public void checkWin()
     {
         foreach(ObjectiveData objective in objectiveList)
         {
             if (!objective.isComplete) return;
         }
         Time.timeScale = 0;
-        UIManager.Instance.winScreen.SetActive(true);
+        gameLog.totalTimeUsed = totalTime - timeLeft;
+        UIManager.Instance.winScreen.Render();
         return;
     }
 
@@ -133,7 +143,8 @@ public class GameState : MonoBehaviour, ITimeTracker
         if (timeLeft <= -1)
         {
             Time.timeScale = 0;
-            UIManager.Instance.loseScreen.SetActive(true);
+            gameLog.totalTimeUsed = totalTime;
+            UIManager.Instance.loseScreen.Render();
             return;
         }
     }

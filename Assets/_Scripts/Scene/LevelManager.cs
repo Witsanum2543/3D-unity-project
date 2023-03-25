@@ -31,6 +31,12 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
 
+    public void PlayAgain()
+    {
+        PlayerPrefs.SetInt("level", 0);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+    }
+
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("level", 0);

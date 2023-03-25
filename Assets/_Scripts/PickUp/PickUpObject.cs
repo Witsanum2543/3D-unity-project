@@ -6,11 +6,11 @@ public class PickUpObject : MonoBehaviour
 {
     
 
-    [SerializeField] public EObjectType objectType;
-    private GameObject playerPickupPivot;
-    [SerializeField] public string productName;
+    public EObjectType objectType;
     public EObjectiveType objectiveType;
-    [SerializeField] public int price;
+    private GameObject playerPickupPivot;
+    public string productName;
+    public int price;
 
     [SerializeField] public StorageBlock storageBlock;
 

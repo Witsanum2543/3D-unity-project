@@ -21,8 +21,8 @@ public class UIManager : MonoBehaviour, ITimeTracker
     public TextMeshProUGUI truckArriveTimeText; 
 
     [Header ("Win Lose Screen")]
-    public GameObject winScreen;
-    public GameObject loseScreen;
+    public GameLogUI winScreen;
+    public GameLogUI loseScreen;
 
     private void Awake() {
         if (Instance != null && Instance != this)
