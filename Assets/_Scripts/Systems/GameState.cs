@@ -6,22 +6,30 @@ public class GameState : MonoBehaviour, ITimeTracker
 {
     public static GameState Instance { get; private set; }
 
-    [SerializeField] public int timeLeft;
-    public int money;
+    [HideInInspector]
     public int truckArrive = 0;
-    // independent of amount of item that player buy
-    public int baseTruckTime = 10;
+
+    [Header ("Game Difficultly")]
+    public int timeLeft;
+    public int money;
+    public int baseTruckTime = 5;
     public int weightScaleTime = 1;
+    [Range(1, 5)]
+    public int objectiveAmount;
+    public int minWork;
+    public int maxWork;
+
+    [Header ("Difficultly Scale")]
+    public int timeIncrease;
+    public int moneyIncrease;
+    public int workIncrease;
 
     [Header ("Objective")]
     public List<ObjectiveData> objectiveList; 
     // using for calculate total work that player need to do
-    public int minWork;
-    public int maxWork;
-    [Range(1, 5)]
-    public int objectiveAmount;
 
     private void Awake() {
+        Time.timeScale = 1;
         // If more than one instance, destroy the extra
         if (Instance != null && Instance != this)
         {
@@ -35,15 +43,21 @@ public class GameState : MonoBehaviour, ITimeTracker
     }
 
     private void Start() {
-        Time.timeScale = 1;
         randomizeObjective();
         ObjectiveManager.Instance.RenderObjective();
         TimeSystem.Instance.RegisterTracker(this);
     }
 
-    public int getMoney()
+    public void levelHardnessAdjust()
     {
-        return money;
+        int currentLevel = LevelManager.Instance.currentLevel;
+
+        timeLeft += currentLevel * timeIncrease; 
+        money += currentLevel * moneyIncrease; 
+        objectiveAmount += currentLevel;
+        minWork += currentLevel * workIncrease;
+        maxWork += currentLevel * (workIncrease * 2);
+
     }
 
     public void changeMoney(int change)

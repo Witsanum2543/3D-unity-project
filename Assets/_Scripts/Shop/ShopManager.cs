@@ -59,7 +59,7 @@ public class ShopManager : MonoBehaviour, ITimeTracker
 
         totalPriceBuyText.text = "";
         totalWeightBuyText.text = totalWeightBuy.ToString() + "/" + truckCapacity.ToString();
-        moneyText.text = GameState.Instance.getMoney().ToString();
+        moneyText.text = GameState.Instance.money.ToString();
     }
 
     public void addItem(ItemData item)
@@ -138,7 +138,7 @@ public class ShopManager : MonoBehaviour, ITimeTracker
     public void RenderShop()
     {
         resetAmountBuy();
-        moneyText.text = GameState.Instance.getMoney().ToString();
+        moneyText.text = GameState.Instance.money.ToString();
         for (int i=0; i<shopSlotList.Length; i++)
         {
             shopSlotList[i].Display(itemSellingList[i]);

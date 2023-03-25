@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
         // Initialize All Text
         truckArriveTimeText.text = "Ready";
-        money.text = GameState.Instance.getMoney().ToString();
+        money.text = GameState.Instance.money.ToString();
     }
 
     public void ToggleShopPanel()
@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     public void updateMoneyText()
     {
-        money.text = GameState.Instance.getMoney().ToString();
+        money.text = GameState.Instance.money.ToString();
     }
 
     public void startTruck(int totalTime)

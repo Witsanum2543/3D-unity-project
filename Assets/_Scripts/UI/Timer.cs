@@ -6,14 +6,13 @@ using TMPro;
 
 public class Timer : MonoBehaviour, ITimeTracker
 {
-    [SerializeField] private Image uiFill;
+    public Image timeBar;
     public TextMeshProUGUI timeText;
 
     private int totalTime;
     private int remainingTime;
     private int warningThreshold;
     private int alertThreshold;
-
 
     // Start is called before the first frame update
     void Start()
@@ -30,15 +29,15 @@ public class Timer : MonoBehaviour, ITimeTracker
     private void updateTimeVisual(int totalSeconds)
     {
         timeText.text = $"{totalSeconds / 60}:{totalSeconds % 60:00}";
-        uiFill.fillAmount = Mathf.InverseLerp(0, totalTime, remainingTime);
+        timeBar.fillAmount = Mathf.InverseLerp(0, totalTime, remainingTime);
 
         if (remainingTime <= alertThreshold)
         {
-            uiFill.color = Color.red;
+            timeBar.color = Color.red;
         }
         else if (remainingTime <= warningThreshold)
         {
-            uiFill.color = new Color(1f, 0.5f, 0f);
+            timeBar.color = new Color(1f, 0.5f, 0f);
         }
     }
 
