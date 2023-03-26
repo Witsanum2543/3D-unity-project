@@ -32,8 +32,6 @@ public class GameState : MonoBehaviour, ITimeTracker
     public List<ObjectiveData> objectiveList; 
     // using for calculate total work that player need to do
 
-        
-
     private void Awake() {
         Time.timeScale = 1;
         // If more than one instance, destroy the extra
@@ -62,7 +60,7 @@ public class GameState : MonoBehaviour, ITimeTracker
 
         timeLeft += currentLevel * timeIncrease; 
         money += currentLevel * moneyIncrease; 
-        objectiveAmount += objectiveIncrease;
+        objectiveAmount += currentLevel * objectiveIncrease;
         minWork += currentLevel * workIncrease;
         maxWork += currentLevel * (workIncrease * 2);
 
@@ -71,7 +69,7 @@ public class GameState : MonoBehaviour, ITimeTracker
     public void changeMoney(int change)
     {
         money += change;
-        gameLog.moneyGain += change;
+
         UIManager.Instance.updateMoneyText();
     }
 
@@ -117,7 +115,12 @@ public class GameState : MonoBehaviour, ITimeTracker
                 objective.currentAmount += 1;
                 if (objective.currentAmount >= objective.requireAmount)
                 {
-                    AudioManager.Instance.PlaySound("quest_complete");
+                    // To make it trigger this sound only once
+                    if (!objective.isComplete)
+                    {
+                        AudioManager.Instance.PlaySound("quest_complete");
+                        
+                    } 
                     objective.isComplete = true;
                 }
                 ObjectiveManager.Instance.RenderObjective();

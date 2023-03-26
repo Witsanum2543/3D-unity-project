@@ -7,6 +7,7 @@ public class HowToPlayManager : MonoBehaviour
     public GameObject howToPlayCanvas;
     public GameObject truckArriveBar;
     public GameObject howToPlayButton;
+    public GameObject upgradeButton;
     public GameObject mainScreen;
 
     public GameObject currentPage;
@@ -19,6 +20,7 @@ public class HowToPlayManager : MonoBehaviour
             truckArriveBar.SetActive(false);
             howToPlayButton.SetActive(false);
             mainScreen.SetActive(false);
+            upgradeButton.SetActive(false);
             howToPlayCanvas.SetActive(true);
             Time.timeScale = 0;
         }
@@ -27,6 +29,7 @@ public class HowToPlayManager : MonoBehaviour
             truckArriveBar.SetActive(true);
             howToPlayButton.SetActive(true);
             mainScreen.SetActive(true);
+            upgradeButton.SetActive(true);
             howToPlayCanvas.SetActive(false);
             Time.timeScale = 1;
         }

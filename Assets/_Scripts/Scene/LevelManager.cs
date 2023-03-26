@@ -7,6 +7,8 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
+    [SerializeField] private GameObject sceneTransition;
+
     public int currentLevel;
 
     private void Awake() {
@@ -21,7 +23,7 @@ public class LevelManager : MonoBehaviour
             Instance = this;
         }
         currentLevel = PlayerPrefs.GetInt("level");
-        GameState.Instance.levelHardnessAdjust();
+        GameState.Instance.levelHardnessAdjust(); 
     }
 
     public void Goto()
@@ -29,7 +31,12 @@ public class LevelManager : MonoBehaviour
         currentLevel++;
         PlayerPrefs.SetInt("level", currentLevel);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        sceneTransition.SetActive(false);
+        sceneTransition.SetActive(true);
+
+
     }
+    
 
     public void PlayAgain()
     {
@@ -40,5 +47,7 @@ public class LevelManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("level", 0);
+        UpgradeManager.Instance.reset();
     }
+
 }

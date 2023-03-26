@@ -94,8 +94,8 @@ GameObject:
   - component: {fileID: 7938133258973938185}
   - component: {fileID: -5081134799290692824}
   - component: {fileID: -8599544084957602332}
-  - component: {fileID: -2000529823889304797}
   - component: {fileID: 4522155154090950370}
+  - component: {fileID: -5835373723771766734}
   m_Layer: 7
   m_Name: carror_package
   m_TagString: pickupObject
@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 1
+  objectiveType: 0
   productName: 
   price: 0
   storageBlock: {fileID: 0}
@@ -151,20 +152,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &-2000529823889304797
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7305465903526402227}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 9f68687ed056603468af8abfce88e732, type: 3}
 --- !u!114 &4522155154090950370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,4 +170,18 @@ MonoBehaviour:
   harvestable: {fileID: 1933020580384420778, guid: b5063ae97e39b074692988219ca1ed30,
     type: 3}
   product: {fileID: 3124264799354647012, guid: 09a20b416983be54da296f552e8af56c, type: 3}
-  maxGrowthPoint: 120
+  maxGrowthPoint: 80
+--- !u!64 &-5835373723771766734
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305465903526402227}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: 9f68687ed056603468af8abfce88e732, type: 3}

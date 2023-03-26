@@ -11,6 +11,7 @@ public class SellingItem : MonoBehaviour
             if (item.objectType == EObjectType.Sellable) {
                 AudioManager.Instance.PlaySound("sell_product");
                 Destroy(other.gameObject);
+                GameState.Instance.gameLog.moneyGain += item.price;
                 GameState.Instance.gameLog.addProductSoldDict(item.objectiveType);
                 GameState.Instance.changeMoney(item.price);
                 GameState.Instance.updateObjective(item.objectiveType);

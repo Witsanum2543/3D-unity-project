@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3434640752447739689}
   - component: {fileID: 2891578056350750196}
   - component: {fileID: 919132148749771145}
-  - component: {fileID: 919132148749771144}
   - component: {fileID: 8365589178450806174}
+  - component: {fileID: -6585067876053448086}
   m_Layer: 7
   m_Name: tomato_package
   m_TagString: pickupObject
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 1
+  objectiveType: 0
   productName: 
   price: 0
   storageBlock: {fileID: 0}
@@ -68,20 +69,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &919132148749771144
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657575943669419411}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: bd50a5971e9f9784b82a347da20d2d4b, type: 3}
 --- !u!114 &8365589178450806174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +87,21 @@ MonoBehaviour:
   harvestable: {fileID: 1992741425384502074, guid: 609fd0b5120391c44bc5fbe8f5805833,
     type: 3}
   product: {fileID: 5217686187941575090, guid: dca9f761f89b6a74393acb4cedf92b82, type: 3}
-  maxGrowthPoint: 60
+  maxGrowthPoint: 40
+--- !u!64 &-6585067876053448086
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657575943669419411}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: bd50a5971e9f9784b82a347da20d2d4b, type: 3}
 --- !u!1 &6443614080466515274
 GameObject:
   m_ObjectHideFlags: 0

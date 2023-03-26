@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4048178519764177066}
   - component: {fileID: 2144271864725370242}
-  - component: {fileID: -1847680543931956566}
   - component: {fileID: -2175291307029526563}
   - component: {fileID: -2253940891883492867}
+  - component: {fileID: 3042414933728725671}
   m_Layer: 7
   m_Name: potato_package
   m_TagString: pickupObject
@@ -49,23 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 1
+  objectiveType: 0
   productName: 
   price: 0
   storageBlock: {fileID: 0}
---- !u!64 &-1847680543931956566
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3703599669911833104}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 54c74b292ec299249a43dc43b25bd22f, type: 3}
 --- !u!54 &-2175291307029526563
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -99,7 +86,21 @@ MonoBehaviour:
   harvestable: {fileID: 6437815503333220984, guid: 72583efc5eeb201418b1f5ac8ad5c940,
     type: 3}
   product: {fileID: 248847036533301335, guid: 2ee706e141f823b45adad5402512ebba, type: 3}
-  maxGrowthPoint: 90
+  maxGrowthPoint: 60
+--- !u!64 &3042414933728725671
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703599669911833104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: 54c74b292ec299249a43dc43b25bd22f, type: 3}
 --- !u!1 &5685829330378830537
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameInput gameInput;
 
     [Header ("Movement parameter")]
-    [SerializeField] private float moveSpeed = 7f;
+    [SerializeField] public float moveSpeed = 7f;
     [SerializeField] private float rotationSpeed = 10f;
 
     // Interaction components
@@ -37,9 +37,8 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
         
-        
-
-        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        float movementUpgrade = UpgradeManager.Instance.findScale(EUpgradeName.MOVEMENT_SPEED);
+        transform.position += moveDirection * (moveSpeed + movementUpgrade) * Time.deltaTime;
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotationSpeed);
 
         isRunning = moveDirection != Vector3.zero;
