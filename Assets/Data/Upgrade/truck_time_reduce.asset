@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: 1
   isUpgrade: 0
-  TAKE_EFFECT_VALUE: 2
+  TAKE_EFFECT_VALUE: 0.5
   RESET_VALUE: 1
-  scale: 0
-  price: 2000
-  description: calculatedTruckTime / TAKE_EFFECT_VALUE
+  scale: 1
+  price: 1000
+  description: calculatedTruckTime * TAKE_EFFECT_VALUE

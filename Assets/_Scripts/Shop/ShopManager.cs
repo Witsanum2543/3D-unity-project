@@ -118,6 +118,7 @@ public class ShopManager : MonoBehaviour, ITimeTracker
 
     public void buyButton()
     {
+        totalPriceBuy = Mathf.RoundToInt(totalPriceBuy * UpgradeManager.Instance.findScale(EUpgradeName.SHOP_SALE));
         float increaseCapacity = UpgradeManager.Instance.findScale(EUpgradeName.DOUBLE_TRUCK_CAPACITY);
         if (totalPriceBuy == 0 ||
             totalPriceBuy > GameState.Instance.money ||

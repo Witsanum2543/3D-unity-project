@@ -504,7 +504,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 20671749}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1283177202}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: mainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &20671749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6700,7 +6712,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 295173704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1283177202}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: mainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &295173704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9861,7 +9885,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444275272}
-  m_LocalRotation: {x: -0.38980302, y: 0.000000016110173, z: -0.000000006138273, w: 0.9208983}
+  m_LocalRotation: {x: -0.38980302, y: -0.000000016110173, z: 0.000000006138273, w: 0.9208983}
   m_LocalPosition: {x: 0, y: -7.0059013, z: 10.3207245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25697,20 +25721,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'I Love You
 
-    I Sex You
-
-    I Love You
-
-    I Sex You
-
-    I Love You
-
-    I
-    Sex You
-
-    I Love You
-
-    I Sex You'
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 970d642bf9b54c54da3e67e6c5b71742, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 3437873766780dc449b4b22f66a7b69d, type: 2}

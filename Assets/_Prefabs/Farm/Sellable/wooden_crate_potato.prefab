@@ -60,9 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: 0
-  productName: potato
   objectiveType: 1
-  price: 350
+  productName: potato
+  price: 500
   storageBlock: {fileID: 0}
 --- !u!54 &2218180300663903288
 Rigidbody:

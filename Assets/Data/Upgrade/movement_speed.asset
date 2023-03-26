@@ -17,5 +17,5 @@ MonoBehaviour:
   TAKE_EFFECT_VALUE: 2
   RESET_VALUE: 0
   scale: 0
-  price: 3000
+  price: 2000
   description: movementSpeed + TAKE_EFFECT_VALUE

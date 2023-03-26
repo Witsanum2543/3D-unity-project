@@ -28,23 +28,35 @@ public class LevelManager : MonoBehaviour
 
     public void Goto()
     {
+        AudioManager.Instance.PlaySound("shop_button");
         currentLevel++;
         PlayerPrefs.SetInt("level", currentLevel);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
         sceneTransition.SetActive(false);
         sceneTransition.SetActive(true);
-
-
     }
     
 
     public void PlayAgain()
     {
-        PlayerPrefs.SetInt("level", 0);
+        AudioManager.Instance.PlaySound("shop_button");
+        Reset();
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
 
+    public void mainMenu()
+    {
+        AudioManager.Instance.PlaySound("shop_button");
+        Reset();
+        SceneManager.LoadSceneAsync("main menu");
+    }
+
     private void OnApplicationQuit()
+    {
+        Reset();
+    }
+
+    private void Reset()
     {
         PlayerPrefs.SetInt("level", 0);
         UpgradeManager.Instance.reset();

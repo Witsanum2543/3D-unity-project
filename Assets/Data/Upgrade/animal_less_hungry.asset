@@ -17,5 +17,5 @@ MonoBehaviour:
   TAKE_EFFECT_VALUE: 0.5
   RESET_VALUE: 0
   scale: 0
-  price: 3500
+  price: 2000
   description: 

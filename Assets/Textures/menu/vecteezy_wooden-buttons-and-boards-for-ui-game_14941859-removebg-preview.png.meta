@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 78c43236556b64ea884e856d57cdcbad
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 322
+        width: 130
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c0a63a716cd4b9ca5821d96329fdd5
+      internalID: -619886089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 221
+        width: 127
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009a9222db4b24a33bcdbf6de3ab82e9
+      internalID: -102627428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 293
+        width: 138
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59e3128bc792d4c479484dafa6228dd5
+      internalID: -787859348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 236
+        width: 202
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbff319da83d44d9c9d7165d6e387b53
+      internalID: -1884079805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 213
+        width: 131
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36f5d7abf1564043a3f42fe2b6b7bab
+      internalID: 1841675488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 139
+        width: 184
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8712f5b03bb4784a50099f5018656a
+      internalID: 1661532962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 129
+        width: 92
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fab8f653280e24d70a05ff4648c8044a
+      internalID: 16805357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 143
+        width: 155
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530775d848b694744a5729d6b2168655
+      internalID: -1796163142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 45
+        width: 90
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 980c75326241349eca6157c9434d1806
+      internalID: 615748587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 39
+        width: 121
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f55b8d2f258c741a2b3176cee99290d8
+      internalID: 1546599981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 44
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d42abad80a87b4f8b87cf8cf5d3ab104
+      internalID: -729895693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: bd34fe439af8245d4838280cb188054e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_3: -1884079805
+      vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_6: 16805357
+      vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_1: -102627428
+      vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_9: 1546599981
+      vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_0: -619886089
+      vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_4: 1841675488
+      vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_5: 1661532962
+      vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_2: -787859348
+      vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_7: -1796163142
+      vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_8: 615748587
+      vecteezy_wooden-buttons-and-boards-for-ui-game_14941859-removebg-preview_10: -729895693
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

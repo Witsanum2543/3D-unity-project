@@ -75,7 +75,7 @@ public class GameState : MonoBehaviour, ITimeTracker
     public int calculateTruckTime(int weight)
     {
         int normalTime = baseTruckTime + (weight * weightScaleTime);
-        int reducedTime = Mathf.RoundToInt(normalTime / UpgradeManager.Instance.findScale(EUpgradeName.TRUCK_TIME_REDUCE));
+        int reducedTime = Mathf.RoundToInt(normalTime * UpgradeManager.Instance.findScale(EUpgradeName.TRUCK_TIME_REDUCE));
         return reducedTime;
     }
 
