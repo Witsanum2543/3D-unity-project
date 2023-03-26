@@ -88,7 +88,7 @@ public class Soil : MonoBehaviour, ITimeTracker
         if (soilState == SoilState.SoilWatered) {
             int secondElapsed = GameTimeStamp.CompareTimeStamps(timeWatered, timeStamp);
             
-            if (secondElapsed >= remainWateredTime)
+            if (secondElapsed >= remainWateredTime * UpgradeManager.Instance.findScale(EUpgradeName.DOUBLE_SOIL_WATERED_TIME))
             {
                 // Dry the soil
                 SwitchSoilState(SoilState.SoilDry);

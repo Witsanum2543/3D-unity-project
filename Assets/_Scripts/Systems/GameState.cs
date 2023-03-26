@@ -6,7 +6,6 @@ public class GameState : MonoBehaviour, ITimeTracker
 {
     public static GameState Instance { get; private set; }
 
-    [HideInInspector]
     public int truckArrive = 0;
     
     public GameLog gameLog;
@@ -75,7 +74,9 @@ public class GameState : MonoBehaviour, ITimeTracker
 
     public int calculateTruckTime(int weight)
     {
-        return baseTruckTime + (weight * weightScaleTime);
+        int normalTime = baseTruckTime + (weight * weightScaleTime);
+        int reducedTime = Mathf.RoundToInt(normalTime / UpgradeManager.Instance.findScale(EUpgradeName.TRUCK_TIME_REDUCE));
+        return reducedTime;
     }
 
     public void sendTruckOut(int weight)

@@ -57,8 +57,9 @@ public class ShopManager : MonoBehaviour, ITimeTracker
         totalPriceBuy = 0;
         totalWeightBuy = 0;
 
+        float increaseCapacity = UpgradeManager.Instance.findScale(EUpgradeName.DOUBLE_TRUCK_CAPACITY);
         totalPriceBuyText.text = "";
-        totalWeightBuyText.text = totalWeightBuy.ToString() + "/" + truckCapacity.ToString();
+        totalWeightBuyText.text = totalWeightBuy.ToString() + "/" + (truckCapacity * increaseCapacity).ToString();
         moneyText.text = GameState.Instance.money.ToString();
     }
 
@@ -97,10 +98,12 @@ public class ShopManager : MonoBehaviour, ITimeTracker
             totalPriceBuy += item.Key.price * item.Value;
             totalWeightBuy += item.Key.weight * item.Value;
         }
-        totalPriceBuyText.text = "- " + totalPriceBuy.ToString();
-        totalWeightBuyText.text = totalWeightBuy.ToString() + "/" + truckCapacity.ToString();
+        totalPriceBuyText.text = "- " + (totalPriceBuy * UpgradeManager.Instance.findScale(EUpgradeName.SHOP_SALE)).ToString();
 
-        if (totalWeightBuy > truckCapacity)
+        float increaseCapacity = UpgradeManager.Instance.findScale(EUpgradeName.DOUBLE_TRUCK_CAPACITY);
+        totalWeightBuyText.text = totalWeightBuy.ToString() + "/" + (truckCapacity * increaseCapacity).ToString();
+
+        if (totalWeightBuy > (truckCapacity * increaseCapacity))
         {
             totalWeightBuyText.color = new Color(200f/255f, 56f/255f, 56f/255f);;
         } else {
@@ -115,10 +118,10 @@ public class ShopManager : MonoBehaviour, ITimeTracker
 
     public void buyButton()
     {
-        
+        float increaseCapacity = UpgradeManager.Instance.findScale(EUpgradeName.DOUBLE_TRUCK_CAPACITY);
         if (totalPriceBuy == 0 ||
             totalPriceBuy > GameState.Instance.money ||
-            totalWeightBuy > truckCapacity ||
+            totalWeightBuy > (truckCapacity * increaseCapacity) ||
             GameState.Instance.truckArrive != 0
         ) {
             AudioManager.Instance.PlaySound("buy_cooldown") ;

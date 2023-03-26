@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbcda48718e0bf84cae00176029baf8f, type: 3}
-  m_Name: movement_upgrade
+  m_Name: truck_time_reduce
   m_EditorClassIdentifier: 
-  upgradeName: 0
+  upgradeName: 1
   isUpgrade: 0
-  ORIGINAL_SCALE_VALUE: 2
+  TAKE_EFFECT_VALUE: 2
+  RESET_VALUE: 1
   scale: 0
-  price: 3000
+  price: 2000
+  description: calculatedTruckTime / TAKE_EFFECT_VALUE

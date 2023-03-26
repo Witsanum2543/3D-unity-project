@@ -8,23 +8,28 @@ public class UpgradeData : ScriptableObject
 {
     public EUpgradeName upgradeName;
     public bool isUpgrade;
-    public float ORIGINAL_SCALE_VALUE;
+    public float TAKE_EFFECT_VALUE;
+    public float RESET_VALUE;
     public float scale;
     public int price;
 
+    [TextArea]
+    public string description;
+
     private void Start() {
-        scale = 0;
+        scale = RESET_VALUE;
     }
 
     public void upgrading()
     {
         isUpgrade = true;
-        scale = ORIGINAL_SCALE_VALUE;
+        scale = TAKE_EFFECT_VALUE;
+        Debug.Log(scale);
     }
 
     public void reset()
     {
         isUpgrade = false;
-        scale = 0;
+        scale = RESET_VALUE;
     }
 }

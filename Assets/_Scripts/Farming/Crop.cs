@@ -59,7 +59,7 @@ public class Crop : MonoBehaviour
 
     public void Growing()
     {
-        growthPoint++;
+        growthPoint += (1 * UpgradeManager.Instance.findScale(EUpgradeName.CROP_GROW_FASTER));
         if (calculateGrowPercentage() >= 50 && currentCropState == CropState.Seed)
         {
             GrowUp();

@@ -32,7 +32,7 @@ public class AnimalProduct : MonoBehaviour, ITimeTracker
     public void Producing()
     {
         // +1 point for each TimeTick
-        producePoint++;
+        producePoint += Mathf.RoundToInt(1 + UpgradeManager.Instance.findScale(EUpgradeName.FASTER_ANIMAL_PRODUCT));
         if (producePoint >= maxProducePoint) {
             produceProduct();
             producePoint = 0;
@@ -49,7 +49,7 @@ public class AnimalProduct : MonoBehaviour, ITimeTracker
             Producing();
         }
 
-        foodPoint--;
+        foodPoint -= (1 - UpgradeManager.Instance.findScale(EUpgradeName.SLOW_DOWN_ANIMAL_HUNGER));
         // Hungry then Eat
         if (isHungry())
         {
