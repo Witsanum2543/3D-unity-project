@@ -6,7 +6,43 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
+      value: 070852505c025b0b0e5a5e7311770847144f197c7e7c25672b2b1865e4e2323c
+      flags: 0
+    RecentlyUsedSceneGuid-1:
+      value: 0553560000070d5f590f0f2042770d464f4e1e7c2d7d20627a791864bbb8306f
+      flags: 0
+    RecentlyUsedSceneGuid-2:
+      value: 0609015001560a590b57092114770a48454e4d2c7b7f206374794a62b2e33761
+      flags: 0
+    RecentlyUsedSceneGuid-3:
+      value: 01010150560d0c5958575f7515770f46444e487f287d27672b2b4562b7b83560
+      flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 5300520306020a585d585c2045770e42124e4c787a787732282d4930b6b6313a
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 5502555350535e0e0e0f0a2644770d1644154b2b757f7f657b794b62b0b36d3b
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 5552525754030a5d0b085d7642770d474e161d7a7f7127677e7b1b30b0e3633a
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 0501045006000b0f5f58087a42775c13404e407d7f7022642b2c4432e4e5376a
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 0107560355530d025e58087314775b4740164e78292a776629781f65e6b8313a
+      flags: 0
+    RecentlyUsedSceneGuid-9:
       value: 5a08575f5207595a0f5d59741173094444164f7d7d2a23317c7a4465bbe1646d
+      flags: 0
+    UnityEditor.ShaderGraph.Blackboard:
+      value: 18135939215a0a5004000b0e15254b524c030a3f2964643d120d1230e9e93a3fd6e826abbd2e2d293c4ead313b08042de6030a0afa240c0d020be94c4ba75e435d8715fa32c70d15d11612dacc11fee5d3c5d1fe9ab1bf968e93e2ffcbc3e7e2f0b3ffe0e8b0be9af8ffaeffff8e85dd8390e3949c8899daa7
+      flags: 0
+    UnityEditor.ShaderGraph.FloatingWindowsLayout2:
+      value: 181344140043005e1a220d3b1f364b524c0c5a27130c293326201334cee5322ca0bd30e8eb293a707b0fd0180b3d0a36fc0d3d04e649500d1002ee0b5dbd1d2c27c00ad113cb1e10e41f1addc80993b98d9884a69ae6d8f0d1cda9e8fbfefaf9f9dea3fdb9ade882f0f7b0e1e380cafbf2c3adc18e9cd285a2908b82ec869c8395949c9483d68a8e97ddbd90bf
+      flags: 0
+    UnityEditor.ShaderGraph.InspectorWindow:
+      value: 18135939215a0a5004000b0e15254b524c1119263f2d6a722016393ce1eb3d36e5d339f9a5602b2e2c07a37e0901373ae01e0008f707250d171df81a53a5485d41895ac825e0100ec20313c0d91cddccd3d0c7efcca9bd80908fecb0f9cfddf1eff4e7a1b1eae482f0fcaee1e1928b86d888ed969b938797a7cf
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
